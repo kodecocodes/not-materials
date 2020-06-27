@@ -1,0 +1,11 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CalendarKit" "${PODS_CONFIGURATION_BUILD_DIR}/DateToolsSwift" "${PODS_CONFIGURATION_BUILD_DIR}/Neon"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CalendarKit/CalendarKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/DateToolsSwift/DateToolsSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Neon/Neon.framework/Headers"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks' '@executable_path/../../Frameworks'
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/CalendarKit/CalendarKit.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/DateToolsSwift/DateToolsSwift.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/Neon/Neon.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/CalendarKit" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/DateToolsSwift" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/Neon"
+OTHER_LDFLAGS = $(inherited) -framework "CalendarKit" -framework "DateToolsSwift" -framework "Neon"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

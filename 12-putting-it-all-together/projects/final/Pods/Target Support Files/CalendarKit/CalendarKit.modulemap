@@ -1,0 +1,6 @@
+framework module CalendarKit {
+  umbrella header "CalendarKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
