@@ -22,4 +22,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let token = deviceToken.reduce("") { $0 + String(format: "%02x", $1) }
     print(token)
   }
+  
+  
+  func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    print(error)
+  }
 }
