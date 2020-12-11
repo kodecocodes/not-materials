@@ -1,11 +1,12 @@
 import SwiftUI
 import UserNotifications
 
-enum SheetType {
-  case timed, calendar, location
-}
-
 struct ContentView: View {
+
+  enum SheetType {
+    case timed, calendar, location
+  }
+
   @EnvironmentObject var commonFields: CommonFieldsModel
   @StateObject private var localNotifications = LocalNotifications()
   @State private var showActionSheet = false
@@ -16,28 +17,27 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       Group {
-
       }
       .navigationBarTitle("Notifications")
       .navigationBarItems(trailing: Button {
-                            commonFields.reset()
-                            showActionSheet.toggle()
-                          } label: {
-                            Image(systemName: "plus")
-                          }
-      )
+        commonFields.reset()
+        showActionSheet.toggle()
+      } label: {
+        Image(systemName: "plus")
+      })
     }
     .actionSheet(isPresented: $showActionSheet) {
-      ActionSheet(title: Text("Type of trigger"),
-                  message: Text("Please select the type of local notification you'd like to create"),
-                  buttons: [
-                    actionSheetButton(text: "Calendar", type: .calendar),
-                    actionSheetButton(text: "Location", type: .location),
-                    actionSheetButton(text: "Timed", type: .timed),
-                  ])
+      ActionSheet(
+        title: Text("Type of trigger"),
+        message: Text("Please select the type of local notification you'd like to create"),
+        buttons: [
+          actionSheetButton(text: "Calendar", type: .calendar),
+          actionSheetButton(text: "Location", type: .location),
+          actionSheetButton(text: "Timed", type: .timed)
+        ])
     }
     .sheet(isPresented: $showSheet) {
-//      localNotifications.refreshNotifications()
+      //      localNotifications.refreshNotifications()
     } content: {
       NavigationView {
         switch sheetType {
@@ -51,9 +51,10 @@ struct ContentView: View {
       }
     }
     .alert(item: $alertText) {
-      Alert(title: Text("Notification not scheduled."),
-            message: Text($0.text),
-            dismissButton: .default(Text("OK")))
+      Alert(
+        title: Text("Notification not scheduled."),
+        message: Text($0.text),
+        dismissButton: .default(Text("OK")))
     }
   }
 

@@ -23,15 +23,17 @@ struct LocationForm: View {
               .imageScale(.large)
           }
           .popover(isPresented: $model.isShowingMap) {
-            LocationValidationView(location: model.location!) { coordinate in
-              model.coordinate = coordinate
+            if let location = model.location {
+              LocationValidationView(location: location) { coordinate in
+                model.coordinate = coordinate
+              }
             }
           }
         }
 
         TextField("Radius", text: $model.radius)
           .keyboardType(.decimalPad)
-        
+
         Toggle(isOn: $model.notifyOnEntry) {
           Text("Notify on entry")
         }
@@ -45,12 +47,11 @@ struct LocationForm: View {
     }
     .textFieldStyle(RoundedBorderTextFieldStyle())
     .alert(item: $model.alertText) {
-      Alert(title: Text($0.text),
-            dismissButton: .default(Text("OK")))
+      Alert(title: Text($0.text), dismissButton: .default(Text("OK")))
     }
     .navigationBarItems(trailing:
-                          Button("Done", action: doneButtonTouched)
-                          .disabled(model.coordinate == nil))
+      Button("Done", action: doneButtonTouched)
+        .disabled(model.coordinate == nil))
     .navigationBarTitle(Text("Location Notification"))
   }
 

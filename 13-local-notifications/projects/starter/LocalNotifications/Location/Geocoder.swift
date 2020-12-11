@@ -2,31 +2,32 @@ import SwiftUI
 import Combine
 import CoreLocation
 
-final class Geocoder: NSObject, ObservableObject {
+final class Geocoder {
   private let geocoder = CLGeocoder()
 
-  @Published private(set) var placemark: CLPlacemark?
-  @Published private(set) var error: String?
+  enum Error: Swift.Error {
+    case other(Swift.Error)
+    case noCoordinates
+  }
 
-  func lookup(address: String) {
-    CLGeocoder().geocodeAddressString(address) { [weak self] placemarks, error in
-      guard let self = self else { return }
+  func lookup(address: String) -> AnyPublisher<CLLocationCoordinate2D, Error> {
+    Deferred {
+      Future { promise in
+        CLGeocoder().geocodeAddressString(address) { placemarks, error in
+          if let error = error {
+            promise(.failure(.other(error)))
+            return
+          }
 
-      if let error = error {
-        self.error = error.localizedDescription
-        self.placemark = nil
-        return
+          guard let placemark = placemarks?.first,
+            let coordinates = placemark.location?.coordinate else {
+            promise(.failure(.noCoordinates))
+            return
+          }
+
+          promise(.success(coordinates))
+        }
       }
-
-      guard let placemark = placemarks?.first,
-            let _ = placemark.location?.coordinate else {
-        self.error = "Failed to get a coordinate"
-        self.placemark = nil
-        return
-      }
-
-      self.error = nil
-      self.placemark = placemark
-    }
+    }.eraseToAnyPublisher()
   }
 }

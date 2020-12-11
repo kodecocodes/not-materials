@@ -15,9 +15,10 @@ struct LocationValidationView: View {
 
   init(location: Location, onComplete: @escaping (CLLocationCoordinate2D?) -> Void) {
     self.location = location
-    _region = State(initialValue: MKCoordinateRegion(center: location.coordinate,
-                                                     latitudinalMeters: oneMile,
-                                                     longitudinalMeters: oneMile))
+    _region = State(initialValue: MKCoordinateRegion(
+      center: location.coordinate,
+      latitudinalMeters: oneMile,
+      longitudinalMeters: oneMile))
 
     self.onComplete = onComplete
   }
@@ -53,7 +54,6 @@ struct LocationValidationView: View {
 struct LocationValidationView_Previews: PreviewProvider {
   static var previews: some View {
     let location = Location(coordinate: .init(latitude: 37.33467830, longitude: -122.0089754000))
-
     LocationValidationView(location: location) { _ in return }
   }
 }
