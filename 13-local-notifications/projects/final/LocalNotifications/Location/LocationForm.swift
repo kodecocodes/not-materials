@@ -17,21 +17,24 @@ struct LocationForm: View {
           TextField("Address", text: $model.address)
 
           Button {
+            print("Lookup")
             model.lookup(address: model.address)
           } label: {
             Image(systemName: "magnifyingglass")
               .imageScale(.large)
           }
           .popover(isPresented: $model.isShowingMap) {
-            LocationValidationView(location: model.location!) { coordinate in
-              model.coordinate = coordinate
+            if let location = model.location {
+              LocationValidationView(location: location) { coordinate in
+                model.coordinate = coordinate
+              }
             }
           }
         }
 
         TextField("Radius", text: $model.radius)
           .keyboardType(.decimalPad)
-        
+
         Toggle(isOn: $model.notifyOnEntry) {
           Text("Notify on entry")
         }
@@ -45,16 +48,15 @@ struct LocationForm: View {
     }
     .textFieldStyle(RoundedBorderTextFieldStyle())
     .alert(item: $model.alertText) {
-      Alert(title: Text($0.text),
-            dismissButton: .default(Text("OK")))
+      Alert(title: Text($0.text), dismissButton: .default(Text("OK")))
     }
     .navigationBarItems(trailing:
-                          Button("Done", action: doneButtonTouched)
-                          .disabled(model.coordinate == nil))
+      Button("Done", action: doneButtonTapped)
+        .disabled(model.coordinate == nil))
     .navigationBarTitle(Text("Location Notification"))
   }
 
-  private func doneButtonTouched() {
+  private func doneButtonTapped() {
     let radiusStr = model.radius.trimmingCharacters(in: .whitespacesAndNewlines)
 
     guard !radiusStr.isEmpty, let distance = CLLocationDistance(radiusStr) else {
@@ -62,8 +64,12 @@ struct LocationForm: View {
       return
     }
 
+    guard let coordinates = model.coordinate else {
+      return
+    }
+
     let region = CLCircularRegion(
-      center: model.coordinate!,
+      center: coordinates,
       radius: distance,
       identifier: UUID().uuidString)
 
@@ -72,7 +78,7 @@ struct LocationForm: View {
 
     let trigger = UNLocationNotificationTrigger(region: region, repeats: commonFields.isRepeating)
     onComplete(trigger, commonFields)
-    
+
     presentationMode.wrappedValue.dismiss()
   }
 }

@@ -15,25 +15,6 @@ final class LocationManager: NSObject, ObservableObject {
     locationManager.delegate = self
   }
 
-  func lookup(address: String, onComplete: @escaping (_ placemark: CLPlacemark?, _ error: String?) -> Void) {
-    CLGeocoder().geocodeAddressString(address) { placemarks, error in
-      guard error == nil else {
-        onComplete(nil, error?.localizedDescription)
-        return
-      }
-
-      guard let placemark = placemarks?.first,
-            let _ = placemark.location?.coordinate else {
-        onComplete(nil, "No available region found.")
-        return
-      }
-
-      onComplete(placemark, nil)
-
-      self.placemark = placemark
-    }
-  }
-
   func requestAuthorization() {
     switch locationManager.authorizationStatus {
     case .notDetermined:

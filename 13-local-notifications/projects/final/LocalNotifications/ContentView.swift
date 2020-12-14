@@ -1,14 +1,13 @@
 import SwiftUI
 import UserNotifications
 
-enum SheetType {
-  case timed, calendar, location
-}
-
 struct ContentView: View {
+  enum SheetType {
+    case timed, calendar, location
+  }
+
   @EnvironmentObject var commonFields: CommonFieldsModel
   @StateObject private var localNotifications = LocalNotifications()
-
   @State private var showActionSheet = false
   @State private var showSheet = false
   @State private var alertText: AlertText?
@@ -27,7 +26,6 @@ struct ContentView: View {
               }
               .onDelete(perform: removePendingNotifications)
             }
-
             Section(header: Text("Delivered")) {
               ForEach(localNotifications.delivered, id: \.request.identifier) {
                 HistoryCell(for: $0.request)
@@ -38,23 +36,22 @@ struct ContentView: View {
         }
       }
       .navigationBarTitle("Notifications")
-      .navigationBarItems(leading: EditButton(),
-                          trailing: Button {
-                            commonFields.reset()
-                            showActionSheet.toggle()
-                          } label: {
-                            Image(systemName: "plus")
-                          }
-      )
+      .navigationBarItems(leading: EditButton(), trailing: Button {
+        commonFields.reset()
+        showActionSheet.toggle()
+      } label: {
+        Image(systemName: "plus")
+      })
     }
     .actionSheet(isPresented: $showActionSheet) {
-      ActionSheet(title: Text("Type of trigger"),
-                  message: Text("Please select the type of local notification you'd like to create"),
-                  buttons: [
-                    actionSheetButton(text: "Calendar", type: .calendar),
-                    actionSheetButton(text: "Location", type: .location),
-                    actionSheetButton(text: "Timed", type: .timed),
-                  ])
+      ActionSheet(
+        title: Text("Type of trigger"),
+        message: Text("Please select the type of local notification you'd like to create"),
+        buttons: [
+          actionSheetButton(text: "Calendar", type: .calendar),
+          actionSheetButton(text: "Location", type: .location),
+          actionSheetButton(text: "Timed", type: .timed)
+        ])
     }
     .sheet(isPresented: $showSheet) {
       localNotifications.refreshNotifications()
@@ -71,13 +68,12 @@ struct ContentView: View {
       }
     }
     .alert(item: $alertText) {
-      Alert(title: Text("Notification not scheduled."),
-            message: Text($0.text),
-            dismissButton: .default(Text("OK")))
+      Alert(
+        title: Text("Notification not scheduled."),
+        message: Text($0.text),
+        dismissButton: .default(Text("OK")))
     }
-    .onAppear {
-      localNotifications.requestAuthorization()
-    }
+    .onAppear(perform: localNotifications.requestAuthorization)
   }
 
   private func actionSheetButton(text: String, type: SheetType) -> Alert.Button {
@@ -88,8 +84,9 @@ struct ContentView: View {
   }
 
   private func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) {
-    localNotifications.scheduleNotification(trigger: trigger,
-                                            model: commonFields) {
+    localNotifications.scheduleNotification(
+      trigger: trigger,
+      model: commonFields) {
       alertText = AlertText(text: $0)
     }
   }

@@ -25,6 +25,7 @@ struct LocationValidationView: View {
 
   var body: some View {
     NavigationView {
+      // swiftlint:disable:next trailing_closure
       Map(coordinateRegion: $region, annotationItems: [location]) {
         MapPin(coordinate: $0.coordinate, tint: .green)
       }

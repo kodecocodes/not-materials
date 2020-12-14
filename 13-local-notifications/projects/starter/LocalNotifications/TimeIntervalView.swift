@@ -21,11 +21,11 @@ struct TimeIntervalView: View {
         title: Text("Please enter a positive numeric value for the seconds to wait."),
         dismissButton: .default(Text("OK")))
     }
-    .navigationBarItems(trailing: Button("Done") { doneButtonTouched() })
+    .navigationBarItems(trailing: Button("Done") { doneButtonTapped() })
     .navigationBarTitle(Text("Timed Notification"))
   }
 
-  private func doneButtonTouched() {
+  private func doneButtonTapped() {
     let value = seconds.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     guard !value.isEmpty, let interval = TimeInterval(value), interval > 0 else {
       alert.toggle()

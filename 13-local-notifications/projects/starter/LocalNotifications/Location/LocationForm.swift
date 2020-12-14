@@ -50,12 +50,12 @@ struct LocationForm: View {
       Alert(title: Text($0.text), dismissButton: .default(Text("OK")))
     }
     .navigationBarItems(trailing:
-      Button("Done", action: doneButtonTouched)
+      Button("Done", action: doneButtonTapped)
         .disabled(model.coordinate == nil))
     .navigationBarTitle(Text("Location Notification"))
   }
 
-  private func doneButtonTouched() {
+  private func doneButtonTapped() {
     let radiusStr = model.radius.trimmingCharacters(in: .whitespacesAndNewlines)
 
     guard !radiusStr.isEmpty, let distance = CLLocationDistance(radiusStr) else {

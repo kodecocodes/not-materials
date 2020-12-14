@@ -2,13 +2,11 @@ import SwiftUI
 import UserNotifications
 
 struct ContentView: View {
-
   enum SheetType {
     case timed, calendar, location
   }
 
   @EnvironmentObject var commonFields: CommonFieldsModel
-  @StateObject private var localNotifications = LocalNotifications()
   @State private var showActionSheet = false
   @State private var showSheet = false
   @State private var alertText: AlertText?

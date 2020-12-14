@@ -40,6 +40,7 @@ final class LocationLookupViewModel: ObservableObject {
         }
       } receiveValue: { coordinates in
         self.coordinate = coordinates
+        self.location = Location(coordinate: coordinates)
       }
       .store(in: &cancellableSet)
   }

@@ -3,12 +3,12 @@ import SwiftUI
 struct CalendarView: View {
   @Environment(\.presentationMode) private var presentationMode
   @EnvironmentObject var commonFields: CommonFieldsModel
-  
+
   @State private var hours = ""
   @State private var minutes = ""
   @State private var seconds = ""
   @State private var alert = false
-  
+
   let onComplete: (UNNotificationTrigger, CommonFieldsModel) -> Void
 
   var body: some View {

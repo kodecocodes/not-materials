@@ -14,9 +14,7 @@ final class LocalNotifications: NSObject, ObservableObject {
   }
 
   func requestAuthorization() {
-    center.requestAuthorization(options: [.badge, .sound, .alert]) {
-      [weak self] granted, error in
-
+    center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] granted, error in
       if let error = error {
         print(error.localizedDescription)
       }
@@ -51,15 +49,11 @@ final class LocalNotifications: NSObject, ObservableObject {
     refreshNotifications()
   }
 
-  func scheduleNotification(
-    trigger: UNNotificationTrigger,
-    model: CommonFieldsModel,
-    onError: @escaping (String) -> Void
-  ) {
-    let t = model.title.trimmingCharacters(in: .whitespacesAndNewlines)
+  func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel, onError: @escaping (String) -> Void) {
+    let title = model.title.trimmingCharacters(in: .whitespacesAndNewlines)
 
     let content = UNMutableNotificationContent()
-    content.title = t.isEmpty ? "No Title Provided" : t
+    content.title = title.isEmpty ? "No Title Provided" : title
 
     if model.hasSound {
       content.sound = UNNotificationSound.default
@@ -70,9 +64,10 @@ final class LocalNotifications: NSObject, ObservableObject {
     }
 
     let identifier = UUID().uuidString
-    let request = UNNotificationRequest(identifier: identifier,
-                                        content: content,
-                                        trigger: trigger)
+    let request = UNNotificationRequest(
+      identifier: identifier,
+      content: content,
+      trigger: trigger)
 
     center.add(request) { error in
       guard let error = error else { return }
@@ -88,8 +83,8 @@ extension LocalNotifications: UNUserNotificationCenterDelegate {
   func userNotificationCenter(
     _ center: UNUserNotificationCenter,
     willPresent notification: UNNotification,
-    withCompletionHandler completionHandler:
-      @escaping (UNNotificationPresentationOptions) -> Void) {
+    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+  ) {
     completionHandler([.banner, .badge, .sound])
   }
 }

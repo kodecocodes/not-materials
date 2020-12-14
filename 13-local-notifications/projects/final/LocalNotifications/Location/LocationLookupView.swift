@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct LocationLookupView: View {
-  let onComplete: (UNNotificationTrigger, CommonFieldsModel) -> Void
   @EnvironmentObject private var locationManager: LocationManager
+  let onComplete: (UNNotificationTrigger, CommonFieldsModel) -> Void
 
   var body: some View {
     Group {
@@ -12,8 +12,6 @@ struct LocationLookupView: View {
         Text(locationManager.authorizationErrorMessage)
       }
     }
-    .onAppear {
-      locationManager.requestAuthorization()
-    }
+    .onAppear(perform: locationManager.requestAuthorization)
   }
 }
