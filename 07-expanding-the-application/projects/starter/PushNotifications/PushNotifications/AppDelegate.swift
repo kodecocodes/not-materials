@@ -2,12 +2,12 @@ import UIKit
 import UserNotifications
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions:
-                    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    UNUserNotificationCenter.current().requestAuthorization(options: [
-      .badge, .sound, .alert
-    ]) { granted, _ in
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    UNUserNotificationCenter.current().requestAuthorization(
+      options: [ .badge, .sound, .alert]) { granted, _ in
       guard granted else { return }
 
       DispatchQueue.main.async {

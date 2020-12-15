@@ -13,6 +13,8 @@
 		D24733642561C070007C9FC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24733632561C070007C9FC9 /* Preview Assets.xcassets */; };
 		D247336D2561C0CF007C9FC9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D247336C2561C0CF007C9FC9 /* LICENSE */; };
 		D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733762561C323007C9FC9 /* AppDelegate.swift */; };
+		F50BA72D2588A103001FB725 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BA72C2588A103001FB725 /* TokenDetails.swift */; };
+		F50BA7302588A80F001FB725 /* APNSUploads.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BA72F2588A80F001FB725 /* APNSUploads.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		D247336C2561C0CF007C9FC9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D24733702561C1BE007C9FC9 /* PushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotifications.entitlements; sourceTree = "<group>"; };
 		D24733762561C323007C9FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F50BA72C2588A103001FB725 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
+		F50BA72F2588A80F001FB725 /* APNSUploads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNSUploads.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				D24733652561C070007C9FC9 /* Info.plist */,
 				D24733622561C070007C9FC9 /* Preview Content */,
 				D24733762561C323007C9FC9 /* AppDelegate.swift */,
+				F50BA72C2588A103001FB725 /* TokenDetails.swift */,
+				F50BA72F2588A80F001FB725 /* APNSUploads.swift */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50BA7302588A80F001FB725 /* APNSUploads.swift in Sources */,
+				F50BA72D2588A103001FB725 /* TokenDetails.swift in Sources */,
 				D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */,
 				D247335F2561C070007C9FC9 /* ContentView.swift in Sources */,
 				D247335D2561C070007C9FC9 /* PushNotificationsApp.swift in Sources */,
@@ -327,7 +335,7 @@
 				CODE_SIGN_ENTITLEMENTS = PushNotifications/PushNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PushNotifications/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PushNotifications/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
