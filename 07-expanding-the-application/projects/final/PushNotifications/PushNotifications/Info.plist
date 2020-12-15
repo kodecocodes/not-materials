@@ -37,12 +37,12 @@
 		<string>armv7</string>
 	</array>
 	<key>UILaunchScreen</key>
-        <dict>
-                <key>UIImageName</key>
-                <string>splash</string>
-                <key>UIImageRespectsSafeAreaInsets</key>
-                <true/>
-        </dict>
+	<dict>
+		<key>UIImageName</key>
+		<string>splash</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

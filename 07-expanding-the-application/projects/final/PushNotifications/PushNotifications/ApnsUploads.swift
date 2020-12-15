@@ -4,7 +4,8 @@ import UserNotifications
 extension AppDelegate {
   func registerForPushNotifications(application: UIApplication) {
     let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.badge, .sound, .alert]) { granted, _ in
+    center.requestAuthorization(
+      options: [.badge, .sound, .alert]) { granted, _ in
       guard granted else { return }
 
       DispatchQueue.main.async {
@@ -33,5 +34,3 @@ extension AppDelegate {
     URLSession.shared.dataTask(with: request).resume()
   }
 }
-
-

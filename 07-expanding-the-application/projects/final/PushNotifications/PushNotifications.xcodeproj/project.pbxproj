@@ -12,9 +12,9 @@
 		D24733612561C070007C9FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24733602561C070007C9FC9 /* Assets.xcassets */; };
 		D24733642561C070007C9FC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24733632561C070007C9FC9 /* Preview Assets.xcassets */; };
 		D247336D2561C0CF007C9FC9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D247336C2561C0CF007C9FC9 /* LICENSE */; };
-		D28A18792561FC88006C7355 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18782561FC88006C7355 /* TokenDetails.swift */; };
-		D28A18912561FE24006C7355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733762561C323007C9FC9 /* AppDelegate.swift */; };
-		D28A18952561FE4C006C7355 /* ApnsUploads.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18942561FE4B006C7355 /* ApnsUploads.swift */; };
+		D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733762561C323007C9FC9 /* AppDelegate.swift */; };
+		F50BA72D2588A103001FB725 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BA72C2588A103001FB725 /* TokenDetails.swift */; };
+		F50BA7302588A80F001FB725 /* APNSUploads.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BA72F2588A80F001FB725 /* APNSUploads.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		D247336C2561C0CF007C9FC9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D24733702561C1BE007C9FC9 /* PushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotifications.entitlements; sourceTree = "<group>"; };
 		D24733762561C323007C9FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D28A18782561FC88006C7355 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
-		D28A18942561FE4B006C7355 /* ApnsUploads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnsUploads.swift; sourceTree = "<group>"; };
+		F50BA72C2588A103001FB725 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
+		F50BA72F2588A80F001FB725 /* APNSUploads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNSUploads.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,15 +64,15 @@
 		D247335B2561C070007C9FC9 /* PushNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				D28A18942561FE4B006C7355 /* ApnsUploads.swift */,
-				D24733762561C323007C9FC9 /* AppDelegate.swift */,
-				D24733602561C070007C9FC9 /* Assets.xcassets */,
-				D247335E2561C070007C9FC9 /* ContentView.swift */,
-				D24733652561C070007C9FC9 /* Info.plist */,
-				D24733622561C070007C9FC9 /* Preview Content */,
 				D24733702561C1BE007C9FC9 /* PushNotifications.entitlements */,
 				D247335C2561C070007C9FC9 /* PushNotificationsApp.swift */,
-				D28A18782561FC88006C7355 /* TokenDetails.swift */,
+				D247335E2561C070007C9FC9 /* ContentView.swift */,
+				D24733602561C070007C9FC9 /* Assets.xcassets */,
+				D24733652561C070007C9FC9 /* Info.plist */,
+				D24733622561C070007C9FC9 /* Preview Content */,
+				D24733762561C323007C9FC9 /* AppDelegate.swift */,
+				F50BA72C2588A103001FB725 /* TokenDetails.swift */,
+				F50BA72F2588A80F001FB725 /* APNSUploads.swift */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
@@ -95,6 +95,7 @@
 				D24733552561C070007C9FC9 /* Sources */,
 				D24733562561C070007C9FC9 /* Frameworks */,
 				D24733572561C070007C9FC9 /* Resources */,
+				F50BA72925889E14001FB725 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -151,14 +152,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F50BA72925889E14001FB725 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D24733552561C070007C9FC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D28A18952561FE4C006C7355 /* ApnsUploads.swift in Sources */,
-				D28A18912561FE24006C7355 /* AppDelegate.swift in Sources */,
-				D28A18792561FC88006C7355 /* TokenDetails.swift in Sources */,
+				F50BA7302588A80F001FB725 /* APNSUploads.swift in Sources */,
+				F50BA72D2588A103001FB725 /* TokenDetails.swift in Sources */,
+				D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */,
 				D247335F2561C070007C9FC9 /* ContentView.swift in Sources */,
 				D247335D2561C070007C9FC9 /* PushNotificationsApp.swift in Sources */,
 			);

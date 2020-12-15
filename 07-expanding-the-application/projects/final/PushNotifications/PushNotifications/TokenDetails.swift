@@ -2,6 +2,7 @@ import Foundation
 
 struct TokenDetails {
   private let encoder = JSONEncoder()
+
   let token: String
   var debug = false
 
@@ -9,8 +10,9 @@ struct TokenDetails {
     self.token = token.reduce("") { $0 + String(format: "%02x", $1) }
     self.encoder.outputFormatting = .prettyPrinted
   }
-  
+
   func encoded() -> Data {
+    // swiftlint:disable:next force_try
     return try! encoder.encode(self)
   }
 }
@@ -23,6 +25,6 @@ extension TokenDetails: Encodable {
 
 extension TokenDetails: CustomStringConvertible {
   var description: String {
-    return String(data: encoded(), encoding: .utf8)!
+    return String(data: encoded(), encoding: .utf8) ?? "Invalid token"
   }
 }
