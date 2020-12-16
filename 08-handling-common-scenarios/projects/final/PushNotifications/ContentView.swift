@@ -1,3 +1,5 @@
+// swiftlint:disable weak_delegate
+
 import SwiftUI
 import CoreData
 
@@ -7,9 +9,13 @@ struct ContentView: View {
   ])
   var messages: FetchedResults<Message>
 
+  @EnvironmentObject var notificationDelegate: NotificationDelegate
+  @State private var isBeachViewActive = false
+
   private func image(for message: Message) -> Image {
-    guard let image = message.image,
-          let uiImage = UIImage(data: image) else {
+    guard
+      let image = message.image,
+      let uiImage = UIImage(data: image) else {
       return Image(systemName: "photo")
     }
 
@@ -17,15 +23,22 @@ struct ContentView: View {
   }
 
   var body: some View {
-    VStack {
-      List(messages) { message in
-        HStack {
-          image(for: message)
-            .resizable()
-            .frame(width: 96, height: 54)
+    NavigationView {
+      VStack {
+        List(messages) { message in
+          HStack {
+            image(for: message)
+              .resizable()
+              .frame(width: 96, height: 54)
 
-          Text(message.text!)
-            .font(.headline)
+            Text(message.text ?? "")
+              .font(.headline)
+          }
+        }
+        NavigationLink(
+          destination: BeachView(),
+          isActive: $notificationDelegate.isBeachViewActive) {
+          EmptyView()
         }
       }
     }

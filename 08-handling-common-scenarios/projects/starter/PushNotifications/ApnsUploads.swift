@@ -34,5 +34,3 @@ extension AppDelegate {
     URLSession.shared.dataTask(with: request).resume()
   }
 }
-
-

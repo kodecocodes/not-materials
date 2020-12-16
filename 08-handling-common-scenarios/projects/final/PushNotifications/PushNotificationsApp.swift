@@ -1,11 +1,11 @@
+// swiftlint:disable weak_delegate
+
 import SwiftUI
 
 @main
 struct PushNotificationsApp: App {
-  @StateObject var viewRouter = ViewRouter()
-
   let persistenceController = PersistenceController.shared
-  
+
   @UIApplicationDelegateAdaptor(AppDelegate.self)
   private var appDelegate
 
@@ -13,6 +13,7 @@ struct PushNotificationsApp: App {
     WindowGroup {
       ContentView()
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        .environmentObject(appDelegate.notificationDelegate)
     }
   }
 }

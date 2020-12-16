@@ -8,8 +8,9 @@ struct ContentView: View {
   var messages: FetchedResults<Message>
 
   private func image(for message: Message) -> Image {
-    guard let image = message.image,
-          let uiImage = UIImage(data: image) else {
+    guard
+      let image = message.image,
+      let uiImage = UIImage(data: image) else {
       return Image(systemName: "photo")
     }
 
@@ -24,7 +25,7 @@ struct ContentView: View {
             .resizable()
             .frame(width: 96, height: 54)
 
-          Text(message.text!)
+          Text(message.text ?? "")
             .font(.headline)
         }
       }

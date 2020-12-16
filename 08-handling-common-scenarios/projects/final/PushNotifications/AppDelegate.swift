@@ -1,13 +1,15 @@
 import UIKit
-import CoreData
 import UserNotifications
+import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+  // swiftlint:disable:next weak_delegate
   let notificationDelegate = NotificationDelegate()
-  
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions:
-                    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
     registerForPushNotifications(application: application)
     return true
   }
@@ -16,10 +18,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     sendPushNotificationDetails(to: "http://192.168.1.1:8080", using: deviceToken)
   }
 
-  func application( _ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    guard let text = userInfo["text"] as? String,
-          let image = userInfo["image"] as? String,
-          let url = URL(string: image) else {
+  func application(
+    _ application: UIApplication,
+    didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+    fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
+  ) {
+    guard
+      let text = userInfo["text"] as? String,
+      let image = userInfo["image"] as? String,
+      let url = URL(string: image) else {
       completionHandler(.noData)
       return
     }

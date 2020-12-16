@@ -2,9 +2,10 @@ import UIKit
 import UserNotifications
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions:
-                    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
     registerForPushNotifications(application: application)
     return true
   }
@@ -13,4 +14,3 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     sendPushNotificationDetails(to: "http://192.168.1.1:8080", using: deviceToken)
   }
 }
-

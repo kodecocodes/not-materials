@@ -15,11 +15,10 @@
 		D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733762561C323007C9FC9 /* AppDelegate.swift */; };
 		D247337E2561D5BB007C9FC9 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247337D2561D5BB007C9FC9 /* TokenDetails.swift */; };
 		D24733812561DC5C007C9FC9 /* ApnsUploads.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733802561DC5C007C9FC9 /* ApnsUploads.swift */; };
-		D26AEB582561E21800F3AA6C /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */; };
-		D26AEB5D2561E9EE00F3AA6C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB5A2561E9EE00F3AA6C /* Model.xcdatamodeld */; };
-		D26AEB5E2561E9EE00F3AA6C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */; };
-		D26AEB6F2561EB1A00F3AA6C /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB6E2561EB1A00F3AA6C /* BeachView.swift */; };
-		D26AEB732561EE4E00F3AA6C /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB722561EE4E00F3AA6C /* ViewRouter.swift */; };
+		D26AEB662561EA7200F3AA6C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB632561EA7200F3AA6C /* Persistence.swift */; };
+		D26AEB672561EA7200F3AA6C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB642561EA7200F3AA6C /* Model.xcdatamodeld */; };
+		D26AEB6B2561EA9500F3AA6C /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB6A2561EA9500F3AA6C /* BeachView.swift */; };
+		F50BA7392588BAE3001FB725 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BA7382588BAE2001FB725 /* NotificationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,11 +33,10 @@
 		D24733762561C323007C9FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D247337D2561D5BB007C9FC9 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
 		D24733802561DC5C007C9FC9 /* ApnsUploads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnsUploads.swift; sourceTree = "<group>"; };
-		D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
-		D26AEB5B2561E9EE00F3AA6C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		D26AEB6E2561EB1A00F3AA6C /* BeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
-		D26AEB722561EE4E00F3AA6C /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		D26AEB632561EA7200F3AA6C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D26AEB652561EA7200F3AA6C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D26AEB6A2561EA9500F3AA6C /* BeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
+		F50BA7382588BAE2001FB725 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,17 +75,16 @@
 				D24733802561DC5C007C9FC9 /* ApnsUploads.swift */,
 				D24733762561C323007C9FC9 /* AppDelegate.swift */,
 				D24733602561C070007C9FC9 /* Assets.xcassets */,
-				D26AEB6E2561EB1A00F3AA6C /* BeachView.swift */,
+				D26AEB6A2561EA9500F3AA6C /* BeachView.swift */,
 				D247335E2561C070007C9FC9 /* ContentView.swift */,
 				D24733652561C070007C9FC9 /* Info.plist */,
-				D26AEB5A2561E9EE00F3AA6C /* Model.xcdatamodeld */,
-				D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */,
-				D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */,
+				D26AEB642561EA7200F3AA6C /* Model.xcdatamodeld */,
+				D26AEB632561EA7200F3AA6C /* Persistence.swift */,
 				D24733622561C070007C9FC9 /* Preview Content */,
 				D24733702561C1BE007C9FC9 /* PushNotifications.entitlements */,
 				D247335C2561C070007C9FC9 /* PushNotificationsApp.swift */,
 				D247337D2561D5BB007C9FC9 /* TokenDetails.swift */,
-				D26AEB722561EE4E00F3AA6C /* ViewRouter.swift */,
+				F50BA7382588BAE2001FB725 /* NotificationDelegate.swift */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
@@ -110,6 +107,7 @@
 				D24733552561C070007C9FC9 /* Sources */,
 				D24733562561C070007C9FC9 /* Frameworks */,
 				D24733572561C070007C9FC9 /* Resources */,
+				F50BA7342588B18C001FB725 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -166,20 +164,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F50BA7342588B18C001FB725 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D24733552561C070007C9FC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26AEB6B2561EA9500F3AA6C /* BeachView.swift in Sources */,
 				D24733812561DC5C007C9FC9 /* ApnsUploads.swift in Sources */,
-				D26AEB5E2561E9EE00F3AA6C /* Persistence.swift in Sources */,
-				D26AEB582561E21800F3AA6C /* NotificationDelegate.swift in Sources */,
 				D247337E2561D5BB007C9FC9 /* TokenDetails.swift in Sources */,
-				D26AEB5D2561E9EE00F3AA6C /* Model.xcdatamodeld in Sources */,
-				D26AEB732561EE4E00F3AA6C /* ViewRouter.swift in Sources */,
 				D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */,
-				D26AEB6F2561EB1A00F3AA6C /* BeachView.swift in Sources */,
+				D26AEB672561EA7200F3AA6C /* Model.xcdatamodeld in Sources */,
+				D26AEB662561EA7200F3AA6C /* Persistence.swift in Sources */,
 				D247335F2561C070007C9FC9 /* ContentView.swift in Sources */,
+				F50BA7392588BAE3001FB725 /* NotificationDelegate.swift in Sources */,
 				D247335D2561C070007C9FC9 /* PushNotificationsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,7 +336,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlichPushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.PushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -342,7 +359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlichPushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.PushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -373,12 +390,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D26AEB5A2561E9EE00F3AA6C /* Model.xcdatamodeld */ = {
+		D26AEB642561EA7200F3AA6C /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D26AEB5B2561E9EE00F3AA6C /* Model.xcdatamodel */,
+				D26AEB652561EA7200F3AA6C /* Model.xcdatamodel */,
 			);
-			currentVersion = D26AEB5B2561E9EE00F3AA6C /* Model.xcdatamodel */;
+			currentVersion = D26AEB652561EA7200F3AA6C /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
