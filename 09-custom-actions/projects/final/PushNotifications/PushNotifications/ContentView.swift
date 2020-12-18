@@ -5,8 +5,14 @@ struct ContentView: View {
 
   var body: some View {
     HStack {
-      ColoredCounter(count: $counter.accepted, backgroundColor: .green, text: "Accepted")
-      ColoredCounter(count: $counter.rejected, backgroundColor: .red, text: "Rejected")
+      ColoredCounter(
+        count: $counter.accepted,
+        backgroundColor: .green,
+        text: "Accepted")
+      ColoredCounter(
+        count: $counter.rejected,
+        backgroundColor: .red,
+        text: "Rejected")
     }
   }
 }

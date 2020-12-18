@@ -1,9 +1,11 @@
+// swiftlint:disable weak_delegate
+
 import UIKit
 import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   let notificationDelegate = NotificationDelegate()
-  
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     registerForPushNotifications(application: application)
     return true

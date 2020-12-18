@@ -1,3 +1,5 @@
+// swiftlint:disable weak_delegate
+
 import UIKit
 import CoreData
 
@@ -9,7 +11,7 @@ public enum ActionIdentifier: String {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   let notificationDelegate = NotificationDelegate()
-  
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     registerForPushNotifications(application: application)
     return true
@@ -21,13 +23,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 
   private func registerCustomActions() {
-    let accept = UNNotificationAction(identifier: ActionIdentifier.accept.rawValue, title: "Accept")
+    let accept = UNNotificationAction(
+      identifier: ActionIdentifier.accept.rawValue,
+      title: "Accept")
 
-    let reject = UNNotificationAction(identifier: ActionIdentifier.reject.rawValue, title: "Reject")
+    let reject = UNNotificationAction(
+      identifier: ActionIdentifier.reject.rawValue,
+      title: "Reject")
 
-    let category = UNNotificationCategory(identifier: categoryIdentifier, actions: [accept, reject], intentIdentifiers: [])
+    let category = UNNotificationCategory(
+      identifier: categoryIdentifier,
+      actions: [accept, reject],
+      intentIdentifiers: [])
 
-    UNUserNotificationCenter.current()
-      .setNotificationCategories([category])
+    UNUserNotificationCenter.current().setNotificationCategories([category])
   }
 }
