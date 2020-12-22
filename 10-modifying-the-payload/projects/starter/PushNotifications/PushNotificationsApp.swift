@@ -1,9 +1,11 @@
+// swiftlint:disable weak_delegate
+
 import SwiftUI
 
 @main
 struct PushNotificationsApp: App {
   let persistenceController = PersistenceController.shared
-  
+
   @UIApplicationDelegateAdaptor(AppDelegate.self)
   private var appDelegate
 

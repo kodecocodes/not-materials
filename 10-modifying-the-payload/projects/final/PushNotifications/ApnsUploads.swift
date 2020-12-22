@@ -4,9 +4,7 @@ import UserNotifications
 extension AppDelegate {
   func registerForPushNotifications(application: UIApplication) {
     let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.badge, .sound, .alert]) {
-      [weak self] granted, _ in
-
+    center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] granted, _ in
       guard granted else { return }
 
       center.delegate = self?.notificationDelegate
@@ -37,5 +35,3 @@ extension AppDelegate {
     URLSession.shared.dataTask(with: request).resume()
   }
 }
-
-
