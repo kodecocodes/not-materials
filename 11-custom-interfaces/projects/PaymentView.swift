@@ -29,7 +29,6 @@
 import UIKit
 
 class PaymentView: UIView {
-  
   var onPaymentRequested: ((NSDecimalNumber) -> Void)?
   
   private lazy var label: UILabel = {
@@ -101,20 +100,19 @@ class PaymentView: UIView {
   
   @objc private func requestPayment() {
     let payment = NSDecimalNumber(value: self.slider.value)
-    UIView.animate(withDuration: 0.3,
-                   animations: { [weak self] in
-                    guard let self = self else { return }
-                    self.slider.alpha = 0.0
-                    self.requestButton.alpha = 0.0
-                    self.label.text = "Requested Payment of \(self.numberFormatter.string(from: payment) ?? "")"
-                   },
-                   completion: { done in
-                    guard done else { return }
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-                      self?.onPaymentRequested?(payment)
-                    }
-                   })
-
+    UIView.animate(
+      withDuration: 0.3,
+      animations: { [weak self] in
+        guard let self = self else { return }
+        self.slider.alpha = 0.0
+        self.requestButton.alpha = 0.0
+        self.label.text = "Requested Payment of \(self.numberFormatter.string(from: payment) ?? "")"
+      },
+      completion: { done in
+        guard done else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+          self?.onPaymentRequested?(payment)
+        }
+      })
   }
 }

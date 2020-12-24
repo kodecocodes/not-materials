@@ -1,3 +1,5 @@
+// swiftlint:disable force_try force_unwrapping
+
 import Foundation
 
 struct TokenDetails {

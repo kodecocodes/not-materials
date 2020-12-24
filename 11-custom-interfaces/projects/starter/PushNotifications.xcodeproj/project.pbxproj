@@ -146,6 +146,7 @@
 				D24733562561C070007C9FC9 /* Frameworks */,
 				D24733572561C070007C9FC9 /* Resources */,
 				D2E07E2825623FA4004AE7B8 /* Embed App Extensions */,
+				F5A2F7952591EFB4006BE02C /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -230,6 +231,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F5A2F7952591EFB4006BE02C /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D24733552561C070007C9FC9 /* Sources */ = {
@@ -389,7 +411,7 @@
 				CODE_SIGN_ENTITLEMENTS = PushNotifications/PushNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PushNotifications/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3G4T2B7D7X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PushNotifications/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -413,7 +435,7 @@
 				CODE_SIGN_ENTITLEMENTS = PushNotifications/PushNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PushNotifications/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3G4T2B7D7X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PushNotifications/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -432,7 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3G4T2B7D7X;
 				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,7 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3G4T2B7D7X;
 				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

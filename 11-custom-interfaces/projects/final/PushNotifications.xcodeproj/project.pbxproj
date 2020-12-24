@@ -16,42 +16,42 @@
 		D247337E2561D5BB007C9FC9 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247337D2561D5BB007C9FC9 /* TokenDetails.swift */; };
 		D24733812561DC5C007C9FC9 /* ApnsUploads.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733802561DC5C007C9FC9 /* ApnsUploads.swift */; };
 		D26AEB582561E21800F3AA6C /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */; };
-		D2E07DF525623798004AE7B8 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E07DF425623798004AE7B8 /* UserNotifications.framework */; };
-		D2E07DF725623798004AE7B8 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E07DF625623798004AE7B8 /* UserNotificationsUI.framework */; };
-		D2E07DFA25623798004AE7B8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07DF925623798004AE7B8 /* NotificationViewController.swift */; };
-		D2E07DFD25623798004AE7B8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07DFB25623798004AE7B8 /* MainInterface.storyboard */; };
-		D2E07E0125623798004AE7B8 /* Custom UI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2E07DF225623798004AE7B8 /* Custom UI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D2E07E1125623D9D004AE7B8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07E1025623D9D004AE7B8 /* NotificationService.swift */; };
-		D2E07E1525623D9D004AE7B8 /* Payload Modification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2E07E0E25623D9D004AE7B8 /* Payload Modification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D2E07E2F256246CD004AE7B8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07E2E256246CD004AE7B8 /* PaymentView.swift */; };
+		D2E07E2325623FA4004AE7B8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07E2225623FA4004AE7B8 /* NotificationService.swift */; };
+		D2E07E2725623FA4004AE7B8 /* Payload Modification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2E07E2025623FA4004AE7B8 /* Payload Modification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F55F7419259492E4001764A8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F7418259492E4001764A8 /* PaymentView.swift */; };
+		F5A2F7B72591F86B006BE02C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A2F7B62591F86B006BE02C /* UserNotifications.framework */; };
+		F5A2F7B92591F86B006BE02C /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A2F7B82591F86B006BE02C /* UserNotificationsUI.framework */; };
+		F5A2F7BF2591F86B006BE02C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A2F7BD2591F86B006BE02C /* MainInterface.storyboard */; };
+		F5A2F7C32591F86B006BE02C /* Custom UI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F5A2F7B42591F86B006BE02C /* Custom UI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5A2F7CB2591F8CC006BE02C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A2F7CA2591F8CC006BE02C /* NotificationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D2E07DFF25623798004AE7B8 /* PBXContainerItemProxy */ = {
+		D2E07E2525623FA4004AE7B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D24733512561C070007C9FC9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D2E07DF125623798004AE7B8;
-			remoteInfo = "Custom UI";
-		};
-		D2E07E1325623D9D004AE7B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D24733512561C070007C9FC9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2E07E0D25623D9D004AE7B8;
+			remoteGlobalIDString = D2E07E1F25623FA4004AE7B8;
 			remoteInfo = "Payload Modification";
+		};
+		F5A2F7C12591F86B006BE02C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D24733512561C070007C9FC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5A2F7B32591F86B006BE02C;
+			remoteInfo = "Custom UI";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D2E07E0225623798004AE7B8 /* Embed App Extensions */ = {
+		D2E07E2825623FA4004AE7B8 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D2E07E1525623D9D004AE7B8 /* Payload Modification.appex in Embed App Extensions */,
-				D2E07E0125623798004AE7B8 /* Custom UI.appex in Embed App Extensions */,
+				F5A2F7C32591F86B006BE02C /* Custom UI.appex in Embed App Extensions */,
+				D2E07E2725623FA4004AE7B8 /* Payload Modification.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,16 +71,16 @@
 		D247337D2561D5BB007C9FC9 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
 		D24733802561DC5C007C9FC9 /* ApnsUploads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnsUploads.swift; sourceTree = "<group>"; };
 		D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
-		D2E07DF225623798004AE7B8 /* Custom UI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Custom UI.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2E07DF425623798004AE7B8 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		D2E07DF625623798004AE7B8 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		D2E07DF925623798004AE7B8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		D2E07DFC25623798004AE7B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		D2E07DFE25623798004AE7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2E07E0E25623D9D004AE7B8 /* Payload Modification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Payload Modification.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2E07E1025623D9D004AE7B8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		D2E07E1225623D9D004AE7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2E07E2E256246CD004AE7B8 /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		D2E07E2025623FA4004AE7B8 /* Payload Modification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Payload Modification.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2E07E2225623FA4004AE7B8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		D2E07E2425623FA4004AE7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F55F7418259492E4001764A8 /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentView.swift; path = ../../PaymentView.swift; sourceTree = "<group>"; };
+		F5A2F7B42591F86B006BE02C /* Custom UI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Custom UI.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A2F7B62591F86B006BE02C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		F5A2F7B82591F86B006BE02C /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		F5A2F7BE2591F86B006BE02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F5A2F7C02591F86B006BE02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A2F7CA2591F8CC006BE02C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,19 +91,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2E07DEF25623798004AE7B8 /* Frameworks */ = {
+		D2E07E1D25623FA4004AE7B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2E07DF725623798004AE7B8 /* UserNotificationsUI.framework in Frameworks */,
-				D2E07DF525623798004AE7B8 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2E07E0B25623D9D004AE7B8 /* Frameworks */ = {
+		F5A2F7B12591F86B006BE02C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A2F7B92591F86B006BE02C /* UserNotificationsUI.framework in Frameworks */,
+				F5A2F7B72591F86B006BE02C /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,9 +115,9 @@
 			children = (
 				D247336C2561C0CF007C9FC9 /* LICENSE */,
 				D247335B2561C070007C9FC9 /* PushNotifications */,
-				D2E07DF825623798004AE7B8 /* Custom UI */,
-				D2E07E0F25623D9D004AE7B8 /* Payload Modification */,
-				D2E07DF325623798004AE7B8 /* Frameworks */,
+				D2E07E2125623FA4004AE7B8 /* Payload Modification */,
+				F5A2F7BA2591F86B006BE02C /* Custom UI */,
+				F5A2F7B52591F86B006BE02C /* Frameworks */,
 				D247335A2561C070007C9FC9 /* Products */,
 			);
 			indentWidth = 2;
@@ -128,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				D24733592561C070007C9FC9 /* PushNotifications.app */,
-				D2E07DF225623798004AE7B8 /* Custom UI.appex */,
-				D2E07E0E25623D9D004AE7B8 /* Payload Modification.appex */,
+				D2E07E2025623FA4004AE7B8 /* Payload Modification.appex */,
+				F5A2F7B42591F86B006BE02C /* Custom UI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,33 +159,33 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D2E07DF325623798004AE7B8 /* Frameworks */ = {
+		D2E07E2125623FA4004AE7B8 /* Payload Modification */ = {
 			isa = PBXGroup;
 			children = (
-				D2E07DF425623798004AE7B8 /* UserNotifications.framework */,
-				D2E07DF625623798004AE7B8 /* UserNotificationsUI.framework */,
+				D2E07E2225623FA4004AE7B8 /* NotificationService.swift */,
+				D2E07E2425623FA4004AE7B8 /* Info.plist */,
+			);
+			path = "Payload Modification";
+			sourceTree = "<group>";
+		};
+		F5A2F7B52591F86B006BE02C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5A2F7B62591F86B006BE02C /* UserNotifications.framework */,
+				F5A2F7B82591F86B006BE02C /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D2E07DF825623798004AE7B8 /* Custom UI */ = {
+		F5A2F7BA2591F86B006BE02C /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
-				D2E07E2E256246CD004AE7B8 /* PaymentView.swift */,
-				D2E07DF925623798004AE7B8 /* NotificationViewController.swift */,
-				D2E07DFB25623798004AE7B8 /* MainInterface.storyboard */,
-				D2E07DFE25623798004AE7B8 /* Info.plist */,
+				F55F7418259492E4001764A8 /* PaymentView.swift */,
+				F5A2F7CA2591F8CC006BE02C /* NotificationViewController.swift */,
+				F5A2F7BD2591F86B006BE02C /* MainInterface.storyboard */,
+				F5A2F7C02591F86B006BE02C /* Info.plist */,
 			);
 			path = "Custom UI";
-			sourceTree = "<group>";
-		};
-		D2E07E0F25623D9D004AE7B8 /* Payload Modification */ = {
-			isa = PBXGroup;
-			children = (
-				D2E07E1025623D9D004AE7B8 /* NotificationService.swift */,
-				D2E07E1225623D9D004AE7B8 /* Info.plist */,
-			);
-			path = "Payload Modification";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,43 +198,27 @@
 				D24733552561C070007C9FC9 /* Sources */,
 				D24733562561C070007C9FC9 /* Frameworks */,
 				D24733572561C070007C9FC9 /* Resources */,
-				D2E07E0225623798004AE7B8 /* Embed App Extensions */,
+				D2E07E2825623FA4004AE7B8 /* Embed App Extensions */,
+				F5A2F7952591EFB4006BE02C /* Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D2E07E0025623798004AE7B8 /* PBXTargetDependency */,
-				D2E07E1425623D9D004AE7B8 /* PBXTargetDependency */,
+				D2E07E2625623FA4004AE7B8 /* PBXTargetDependency */,
+				F5A2F7C22591F86B006BE02C /* PBXTargetDependency */,
 			);
 			name = PushNotifications;
 			productName = PushNotifications;
 			productReference = D24733592561C070007C9FC9 /* PushNotifications.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2E07DF125623798004AE7B8 /* Custom UI */ = {
+		D2E07E1F25623FA4004AE7B8 /* Payload Modification */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2E07E0525623798004AE7B8 /* Build configuration list for PBXNativeTarget "Custom UI" */;
+			buildConfigurationList = D2E07E2B25623FA4004AE7B8 /* Build configuration list for PBXNativeTarget "Payload Modification" */;
 			buildPhases = (
-				D2E07DEE25623798004AE7B8 /* Sources */,
-				D2E07DEF25623798004AE7B8 /* Frameworks */,
-				D2E07DF025623798004AE7B8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Custom UI";
-			productName = "Custom UI";
-			productReference = D2E07DF225623798004AE7B8 /* Custom UI.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		D2E07E0D25623D9D004AE7B8 /* Payload Modification */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2E07E1625623D9D004AE7B8 /* Build configuration list for PBXNativeTarget "Payload Modification" */;
-			buildPhases = (
-				D2E07E0A25623D9D004AE7B8 /* Sources */,
-				D2E07E0B25623D9D004AE7B8 /* Frameworks */,
-				D2E07E0C25623D9D004AE7B8 /* Resources */,
+				D2E07E1C25623FA4004AE7B8 /* Sources */,
+				D2E07E1D25623FA4004AE7B8 /* Frameworks */,
+				D2E07E1E25623FA4004AE7B8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,7 +226,25 @@
 			);
 			name = "Payload Modification";
 			productName = "Payload Modification";
-			productReference = D2E07E0E25623D9D004AE7B8 /* Payload Modification.appex */;
+			productReference = D2E07E2025623FA4004AE7B8 /* Payload Modification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F5A2F7B32591F86B006BE02C /* Custom UI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A2F7C62591F86B006BE02C /* Build configuration list for PBXNativeTarget "Custom UI" */;
+			buildPhases = (
+				F5A2F7B02591F86B006BE02C /* Sources */,
+				F5A2F7B12591F86B006BE02C /* Frameworks */,
+				F5A2F7B22591F86B006BE02C /* Resources */,
+				F55F741125949294001764A8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Custom UI";
+			productName = "Custom UI";
+			productReference = F5A2F7B42591F86B006BE02C /* Custom UI.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -258,10 +260,10 @@
 					D24733582561C070007C9FC9 = {
 						CreatedOnToolsVersion = 12.2;
 					};
-					D2E07DF125623798004AE7B8 = {
+					D2E07E1F25623FA4004AE7B8 = {
 						CreatedOnToolsVersion = 12.2;
 					};
-					D2E07E0D25623D9D004AE7B8 = {
+					F5A2F7B32591F86B006BE02C = {
 						CreatedOnToolsVersion = 12.2;
 					};
 				};
@@ -280,8 +282,8 @@
 			projectRoot = "";
 			targets = (
 				D24733582561C070007C9FC9 /* PushNotifications */,
-				D2E07DF125623798004AE7B8 /* Custom UI */,
-				D2E07E0D25623D9D004AE7B8 /* Payload Modification */,
+				D2E07E1F25623FA4004AE7B8 /* Payload Modification */,
+				F5A2F7B32591F86B006BE02C /* Custom UI */,
 			);
 		};
 /* End PBXProject section */
@@ -297,22 +299,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2E07DF025623798004AE7B8 /* Resources */ = {
+		D2E07E1E25623FA4004AE7B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2E07DFD25623798004AE7B8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2E07E0C25623D9D004AE7B8 /* Resources */ = {
+		F5A2F7B22591F86B006BE02C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A2F7BF2591F86B006BE02C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F55F741125949294001764A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+		F5A2F7952591EFB4006BE02C /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D24733552561C070007C9FC9 /* Sources */ = {
@@ -328,43 +368,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2E07DEE25623798004AE7B8 /* Sources */ = {
+		D2E07E1C25623FA4004AE7B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2E07DFA25623798004AE7B8 /* NotificationViewController.swift in Sources */,
-				D2E07E2F256246CD004AE7B8 /* PaymentView.swift in Sources */,
+				D2E07E2325623FA4004AE7B8 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2E07E0A25623D9D004AE7B8 /* Sources */ = {
+		F5A2F7B02591F86B006BE02C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2E07E1125623D9D004AE7B8 /* NotificationService.swift in Sources */,
+				F5A2F7CB2591F8CC006BE02C /* NotificationViewController.swift in Sources */,
+				F55F7419259492E4001764A8 /* PaymentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D2E07E0025623798004AE7B8 /* PBXTargetDependency */ = {
+		D2E07E2625623FA4004AE7B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2E07DF125623798004AE7B8 /* Custom UI */;
-			targetProxy = D2E07DFF25623798004AE7B8 /* PBXContainerItemProxy */;
+			target = D2E07E1F25623FA4004AE7B8 /* Payload Modification */;
+			targetProxy = D2E07E2525623FA4004AE7B8 /* PBXContainerItemProxy */;
 		};
-		D2E07E1425623D9D004AE7B8 /* PBXTargetDependency */ = {
+		F5A2F7C22591F86B006BE02C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2E07E0D25623D9D004AE7B8 /* Payload Modification */;
-			targetProxy = D2E07E1325623D9D004AE7B8 /* PBXContainerItemProxy */;
+			target = F5A2F7B32591F86B006BE02C /* Custom UI */;
+			targetProxy = F5A2F7C12591F86B006BE02C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2E07DFB25623798004AE7B8 /* MainInterface.storyboard */ = {
+		F5A2F7BD2591F86B006BE02C /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D2E07DFC25623798004AE7B8 /* Base */,
+				F5A2F7BE2591F86B006BE02C /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -536,18 +576,18 @@
 			};
 			name = Release;
 		};
-		D2E07E0325623798004AE7B8 /* Debug */ = {
+		D2E07E2925623FA4004AE7B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Custom UI/Info.plist";
+				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Custom-UI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Payload-Modification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -555,18 +595,18 @@
 			};
 			name = Debug;
 		};
-		D2E07E0425623798004AE7B8 /* Release */ = {
+		D2E07E2A25623FA4004AE7B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Custom UI/Info.plist";
+				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Custom-UI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Payload-Modification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -574,18 +614,18 @@
 			};
 			name = Release;
 		};
-		D2E07E1725623D9D004AE7B8 /* Debug */ = {
+		F5A2F7C42591F86B006BE02C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Payload Modification/Info.plist";
+				INFOPLIST_FILE = "Custom UI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Payload-Modification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Custom-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -593,18 +633,18 @@
 			};
 			name = Debug;
 		};
-		D2E07E1825623D9D004AE7B8 /* Release */ = {
+		F5A2F7C52591F86B006BE02C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Payload Modification/Info.plist";
+				INFOPLIST_FILE = "Custom UI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Payload-Modification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.PushNotifications.Custom-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -633,20 +673,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2E07E0525623798004AE7B8 /* Build configuration list for PBXNativeTarget "Custom UI" */ = {
+		D2E07E2B25623FA4004AE7B8 /* Build configuration list for PBXNativeTarget "Payload Modification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2E07E0325623798004AE7B8 /* Debug */,
-				D2E07E0425623798004AE7B8 /* Release */,
+				D2E07E2925623FA4004AE7B8 /* Debug */,
+				D2E07E2A25623FA4004AE7B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2E07E1625623D9D004AE7B8 /* Build configuration list for PBXNativeTarget "Payload Modification" */ = {
+		F5A2F7C62591F86B006BE02C /* Build configuration list for PBXNativeTarget "Custom UI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2E07E1725623D9D004AE7B8 /* Debug */,
-				D2E07E1825623D9D004AE7B8 /* Release */,
+				F5A2F7C42591F86B006BE02C /* Debug */,
+				F5A2F7C52591F86B006BE02C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

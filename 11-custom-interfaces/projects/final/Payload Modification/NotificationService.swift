@@ -1,7 +1,8 @@
+// swiftlint:disable multiline_function_chains
+
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
-
   var contentHandler: ((UNNotificationContent) -> Void)?
   var bestAttemptContent: UNMutableNotificationContent?
 
@@ -14,7 +15,7 @@ class NotificationService: UNNotificationServiceExtension {
     }
 
     guard let urlPath = request.content.userInfo["media-url"] as? String,
-          let url = URL(string: urlPath) else {
+      let url = URL(string: urlPath) else {
       contentHandler(bestAttemptContent)
       return
     }
@@ -24,9 +25,8 @@ class NotificationService: UNNotificationServiceExtension {
 
       guard let data = data else { return }
 
-      let file = response?.suggestedFilename ?? url.lastPathComponent
       let destination = URL(fileURLWithPath: NSTemporaryDirectory())
-        .appendingPathComponent(file)
+        .appendingPathComponent(response?.suggestedFilename ?? url.lastPathComponent)
 
       do {
         try data.write(to: destination)
@@ -43,7 +43,7 @@ class NotificationService: UNNotificationServiceExtension {
   override func serviceExtensionTimeWillExpire() {
     // Called just before the extension will be terminated by the system.
     // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-    if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
+    if let contentHandler = contentHandler, let bestAttemptContent = bestAttemptContent {
       contentHandler(bestAttemptContent)
     }
   }
