@@ -8,6 +8,7 @@ struct PushNotificationsApp: App {
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .environmentObject(appDelegate.notificationCenter)
     }
   }
 }

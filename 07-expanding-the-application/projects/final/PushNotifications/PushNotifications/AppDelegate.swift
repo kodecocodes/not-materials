@@ -1,11 +1,11 @@
-import SwiftUI
+import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-  ) -> Bool {
-    registerForPushNotifications(application: application)
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions:
+                   [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    PushNotifications.register(in: application)
+
     return true
   }
 
@@ -13,8 +13,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     _ application: UIApplication,
     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
   ) {
-    sendPushNotificationDetails(
-      to: "http://192.168.1.1:8080",
-      using: deviceToken)
+    PushNotifications.send(token: deviceToken, to: "http://192.168.1.1:8080")
   }
 }
