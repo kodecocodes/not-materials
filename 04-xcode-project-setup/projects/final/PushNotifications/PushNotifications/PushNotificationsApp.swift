@@ -2,8 +2,8 @@ import SwiftUI
 
 @main
 struct PushNotificationsApp: App {
-  @UIApplicationDelegateAdaptor
-  private var appDelegate: AppDelegate
+  @UIApplicationDelegateAdaptor(AppDelegate.self)
+  private var appDelegate
 
   var body: some Scene {
     WindowGroup {
