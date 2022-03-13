@@ -13,6 +13,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     _ application: UIApplication,
     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
   ) {
-    PushNotifications.send(token: deviceToken, to: "http://192.168.1.1:8080")
+    PushNotifications.send(token: deviceToken, to: "http://192.168.1.66:8080/token")
   }
 }
+
