@@ -1,8 +1,8 @@
 <?php
   
-const AUTH_KEY_PATH = '/Users/marinbenc/Downloads/AuthKey_6M3G4F332C.p8';
-const AUTH_KEY_ID = '6M3G4F332C';
-const TEAM_ID = '3G4T2B7D7X';
+const AUTH_KEY_PATH = '/path/to/AuthKey_code_p8';
+const AUTH_KEY_ID = '';
+const TEAM_ID = '';
 const BUNDLE_ID = 'com.raywenderlich.PushNotifications';
 
 $payload = [

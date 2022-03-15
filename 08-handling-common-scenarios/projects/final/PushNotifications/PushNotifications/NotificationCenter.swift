@@ -5,6 +5,7 @@ final class NotificationCenter: NSObject {
 }
 
 extension NotificationCenter: UNUserNotificationCenterDelegate {
+  
   func userNotificationCenter(
     _ center: UNUserNotificationCenter,
     willPresent notification: UNNotification
@@ -24,5 +25,4 @@ extension NotificationCenter: UNUserNotificationCenterDelegate {
   }
 }
 
-extension NotificationCenter: ObservableObject {
-}
+extension NotificationCenter: ObservableObject {}
