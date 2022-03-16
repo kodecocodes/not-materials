@@ -5,7 +5,6 @@ final class NotificationCenter: NSObject {
 }
 
 extension NotificationCenter: UNUserNotificationCenterDelegate {
-  
   func userNotificationCenter(
     _ center: UNUserNotificationCenter,
     willPresent notification: UNNotification
@@ -20,7 +19,9 @@ extension NotificationCenter: UNUserNotificationCenterDelegate {
     if response.notification.request.content.userInfo["beach"] != nil {
       // In a real app you'd likely pull a URL from the beach data
       // and use that image.
-      isBeachViewActive = true
+      await MainActor.run {
+        isBeachViewActive = true
+      }
     }
   }
 }

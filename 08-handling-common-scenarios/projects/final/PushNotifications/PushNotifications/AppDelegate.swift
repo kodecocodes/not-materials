@@ -32,7 +32,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let context = PersistenceController.shared.container.viewContext
 
     do {
-      return try await context.perform(schedule: .immediate) { () -> UIBackgroundFetchResult in
+      return try await context.perform(schedule: .immediate) { () throws -> UIBackgroundFetchResult in
         let message = Message(context: context)
         message.image = try Data(contentsOf: url)
         message.received = Date()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D23BB34B27E1C46B005C1375 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D23BB34927E1C46B005C1375 /* Model.xcdatamodeld */; };
 		D2AB2E1C27A7C486001BBD8D /* PushNotificationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E1B27A7C486001BBD8D /* PushNotificationsApp.swift */; };
 		D2AB2E1E27A7C486001BBD8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E1D27A7C486001BBD8D /* ContentView.swift */; };
 		D2AB2E2027A7C487001BBD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB2E1F27A7C487001BBD8D /* Assets.xcassets */; };
@@ -15,12 +16,12 @@
 		D2AB2E2F27A7C643001BBD8D /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E2E27A7C643001BBD8D /* TokenDetails.swift */; };
 		D2AB2E3227A7C78D001BBD8D /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E3127A7C78D001BBD8D /* PushNotifications.swift */; };
 		D2AB2E3927A7CDE1001BBD8D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E3527A7CDE1001BBD8D /* Persistence.swift */; };
-		D2AB2E3A27A7CDE1001BBD8D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E3627A7CDE1001BBD8D /* Model.xcdatamodeld */; };
 		D2AB2E3B27A7CDE1001BBD8D /* BeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E3827A7CDE1001BBD8D /* BeachView.swift */; };
 		D2AB2E3D27A7CEC2001BBD8D /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB2E3C27A7CEC2001BBD8D /* NotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D23BB34A27E1C46B005C1375 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D2AB2E1827A7C486001BBD8D /* PushNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB2E1B27A7C486001BBD8D /* PushNotificationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsApp.swift; sourceTree = "<group>"; };
 		D2AB2E1D27A7C486001BBD8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		D2AB2E3027A7C71D001BBD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2AB2E3127A7C78D001BBD8D /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
 		D2AB2E3527A7CDE1001BBD8D /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		D2AB2E3727A7CDE1001BBD8D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D2AB2E3827A7CDE1001BBD8D /* BeachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachView.swift; sourceTree = "<group>"; };
 		D2AB2E3C27A7CEC2001BBD8D /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +82,8 @@
 				D2AB2E1B27A7C486001BBD8D /* PushNotificationsApp.swift */,
 				D2AB2E2E27A7C643001BBD8D /* TokenDetails.swift */,
 				D2AB2E1F27A7C487001BBD8D /* Assets.xcassets */,
-				D2AB2E3627A7CDE1001BBD8D /* Model.xcdatamodeld */,
 				D2AB2E2127A7C487001BBD8D /* Preview Content */,
+				D23BB34927E1C46B005C1375 /* Model.xcdatamodeld */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
@@ -171,8 +171,8 @@
 				D2AB2E2F27A7C643001BBD8D /* TokenDetails.swift in Sources */,
 				D2AB2E2B27A7C4D8001BBD8D /* AppDelegate.swift in Sources */,
 				D2AB2E1E27A7C486001BBD8D /* ContentView.swift in Sources */,
-				D2AB2E3A27A7CDE1001BBD8D /* Model.xcdatamodeld in Sources */,
 				D2AB2E3927A7CDE1001BBD8D /* Persistence.swift in Sources */,
+				D23BB34B27E1C46B005C1375 /* Model.xcdatamodeld in Sources */,
 				D2AB2E1C27A7C486001BBD8D /* PushNotificationsApp.swift in Sources */,
 				D2AB2E3D27A7CEC2001BBD8D /* NotificationCenter.swift in Sources */,
 				D2AB2E3227A7C78D001BBD8D /* PushNotifications.swift in Sources */,
@@ -386,12 +386,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D2AB2E3627A7CDE1001BBD8D /* Model.xcdatamodeld */ = {
+		D23BB34927E1C46B005C1375 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D2AB2E3727A7CDE1001BBD8D /* Model.xcdatamodel */,
+				D23BB34A27E1C46B005C1375 /* Model.xcdatamodel */,
 			);
-			currentVersion = D2AB2E3727A7CDE1001BBD8D /* Model.xcdatamodel */;
+			currentVersion = D23BB34A27E1C46B005C1375 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
