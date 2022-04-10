@@ -3,12 +3,13 @@
 const AUTH_KEY_PATH = '/path/to/AuthKey_code_p8';
 const AUTH_KEY_ID = '';
 const TEAM_ID = '';
-const BUNDLE_ID = 'com.raywenderlich.PushNotifications';
+const BUNDLE_ID = 'com.yourcompany.PushNotifications';
 
 $payload = [
   'aps' => [
     'alert' => [
-      'title' => 'This is the notification.',
+      'title' => 'Hello!',
+      'body' => 'How are you today?',
     ],
     'sound'=> 'default',
   ],

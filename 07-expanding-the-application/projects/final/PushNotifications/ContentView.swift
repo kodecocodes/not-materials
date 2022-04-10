@@ -30,74 +30,17 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Fluent
-import Vapor
-import APNS
+import SwiftUI
 
-struct TokenController {
-  func create(req: Request) async throws -> HTTPStatus {
-    let token = try req.content.decode(Token.self)
-    try await token.create(on: req.db)
-    return .created
-  }
-
-  func delete(req: Request) async throws -> HTTPStatus {
-    guard let token = req.parameters.get("token") else {
-      return .badRequest
-    }
-
-    guard
-      let row = try await Token.query(on: req.db)
-        .filter(\.$token == token)
-        .first()
-    else {
-      return .notFound
-    }
-
-    try await row.delete(on: req.db)
-    return .noContent
-  }
-
-  func notify(req: Request) async throws -> HTTPStatus {
-    let tokens = try await Token.query(on: req.db).all()
-
-    guard !tokens.isEmpty else {
-      return .noContent
-    }
-
-    let alert = APNSwiftAlert(title: "Hello!", body: "How are you today?")
-
-    return try await withCheckedThrowingContinuation { continuation in
-      do {
-        try tokens.map { token in
-          req.apns.send(alert, to: token.token)
-            .flatMapError {
-              guard
-                case let APNSwiftError.ResponseError.badRequest(response) = $0,
-                response == .badDeviceToken
-              else {
-                return req.db.eventLoop.future()
-              }
-              return token.delete(on: req.db)
-            }
-        }
-        .flatten(on: req.eventLoop)
-        .wait()
-      } catch {
-        continuation.resume(throwing: error)
-      }
-
-      continuation.resume(returning: .noContent)
-    }
+struct ContentView: View {
+  var body: some View {
+    Text("Hello, world!")
+      .padding()
   }
 }
 
-extension TokenController: RouteCollection {
-  func boot(routes: RoutesBuilder) throws {
-    let tokens = routes.grouped("token")
-    tokens.post(use: create)
-    tokens.delete(":token", use: delete)
-    tokens.post("notify", use: notify)
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    ContentView()
   }
 }
-

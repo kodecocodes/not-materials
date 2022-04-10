@@ -1,9 +1,9 @@
 <?php
   
-const AUTH_KEY_PATH = '/full/path/to/AuthKey_keyid.p8';
-const AUTH_KEY_ID = 'ABCDEF1234';
-const TEAM_ID = '1234ABCDEF';
-const BUNDLE_ID = 'com.raywenderlich.PushNotifications';
+const AUTH_KEY_PATH = '~/Downloads/AuthKey_H44GD32Z4Z.p8';
+const AUTH_KEY_ID = 'H44GD32Z4Z';
+const TEAM_ID = '3G4T2B7D7X';
+const BUNDLE_ID = 'com.morselinteractive.PushNotifications';
 
 $payload = [
   'aps' => [
