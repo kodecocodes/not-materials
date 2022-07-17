@@ -82,8 +82,8 @@
 				D2AB2E1B27A7C486001BBD8D /* PushNotificationsApp.swift */,
 				D2AB2E2E27A7C643001BBD8D /* TokenDetails.swift */,
 				D2AB2E1F27A7C487001BBD8D /* Assets.xcassets */,
-				D2AB2E2127A7C487001BBD8D /* Preview Content */,
 				D23BB34927E1C46B005C1375 /* Model.xcdatamodeld */,
+				D2AB2E2127A7C487001BBD8D /* Preview Content */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
