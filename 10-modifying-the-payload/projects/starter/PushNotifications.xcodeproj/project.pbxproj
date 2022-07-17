@@ -3,37 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D23B404D28838D7B00B6877B /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B404A28838D7B00B6877B /* TokenDetails.swift */; };
+		D23B404E28838D7B00B6877B /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B404B28838D7B00B6877B /* PushNotifications.swift */; };
+		D23B404F28838D7B00B6877B /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B404C28838D7B00B6877B /* NotificationCenter.swift */; };
 		D247335D2561C070007C9FC9 /* PushNotificationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247335C2561C070007C9FC9 /* PushNotificationsApp.swift */; };
 		D247335F2561C070007C9FC9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247335E2561C070007C9FC9 /* ContentView.swift */; };
 		D24733612561C070007C9FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24733602561C070007C9FC9 /* Assets.xcassets */; };
 		D24733642561C070007C9FC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24733632561C070007C9FC9 /* Preview Assets.xcassets */; };
 		D247336D2561C0CF007C9FC9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D247336C2561C0CF007C9FC9 /* LICENSE */; };
 		D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733762561C323007C9FC9 /* AppDelegate.swift */; };
-		D247337E2561D5BB007C9FC9 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247337D2561D5BB007C9FC9 /* TokenDetails.swift */; };
-		D24733812561DC5C007C9FC9 /* ApnsUploads.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733802561DC5C007C9FC9 /* ApnsUploads.swift */; };
-		D26AEB582561E21800F3AA6C /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */; };
 		D26AEB5D2561E9EE00F3AA6C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB5A2561E9EE00F3AA6C /* Model.xcdatamodeld */; };
 		D26AEB5E2561E9EE00F3AA6C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D201EF29256206E0007DA3FF /* Embed App Extensions */ = {
+		D201EF29256206E0007DA3FF /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D23B404A28838D7B00B6877B /* TokenDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
+		D23B404B28838D7B00B6877B /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
+		D23B404C28838D7B00B6877B /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		D24733592561C070007C9FC9 /* PushNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D247335C2561C070007C9FC9 /* PushNotificationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsApp.swift; sourceTree = "<group>"; };
 		D247335E2561C070007C9FC9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,9 +46,6 @@
 		D247336C2561C0CF007C9FC9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D24733702561C1BE007C9FC9 /* PushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotifications.entitlements; sourceTree = "<group>"; };
 		D24733762561C323007C9FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D247337D2561D5BB007C9FC9 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
-		D24733802561DC5C007C9FC9 /* ApnsUploads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnsUploads.swift; sourceTree = "<group>"; };
-		D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		D26AEB5B2561E9EE00F3AA6C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,18 +83,18 @@
 		D247335B2561C070007C9FC9 /* PushNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				D24733802561DC5C007C9FC9 /* ApnsUploads.swift */,
-				D24733762561C323007C9FC9 /* AppDelegate.swift */,
-				D24733602561C070007C9FC9 /* Assets.xcassets */,
-				D247335E2561C070007C9FC9 /* ContentView.swift */,
-				D24733652561C070007C9FC9 /* Info.plist */,
-				D26AEB5A2561E9EE00F3AA6C /* Model.xcdatamodeld */,
-				D26AEB572561E21800F3AA6C /* NotificationDelegate.swift */,
-				D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */,
-				D24733622561C070007C9FC9 /* Preview Content */,
 				D24733702561C1BE007C9FC9 /* PushNotifications.entitlements */,
+				D24733652561C070007C9FC9 /* Info.plist */,
+				D24733762561C323007C9FC9 /* AppDelegate.swift */,
+				D247335E2561C070007C9FC9 /* ContentView.swift */,
+				D23B404C28838D7B00B6877B /* NotificationCenter.swift */,
+				D26AEB5C2561E9EE00F3AA6C /* Persistence.swift */,
+				D23B404B28838D7B00B6877B /* PushNotifications.swift */,
 				D247335C2561C070007C9FC9 /* PushNotificationsApp.swift */,
-				D247337D2561D5BB007C9FC9 /* TokenDetails.swift */,
+				D23B404A28838D7B00B6877B /* TokenDetails.swift */,
+				D24733602561C070007C9FC9 /* Assets.xcassets */,
+				D26AEB5A2561E9EE00F3AA6C /* Model.xcdatamodeld */,
+				D24733622561C070007C9FC9 /* Preview Content */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
@@ -117,7 +117,7 @@
 				D24733552561C070007C9FC9 /* Sources */,
 				D24733562561C070007C9FC9 /* Frameworks */,
 				D24733572561C070007C9FC9 /* Resources */,
-				D201EF29256206E0007DA3FF /* Embed App Extensions */,
+				D201EF29256206E0007DA3FF /* Embed Foundation Extensions */,
 				F512FB4B258DFB9A00A8122F /* ShellScript */,
 			);
 			buildRules = (
@@ -136,7 +136,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Ray Wenderlich";
 				TargetAttributes = {
 					D24733582561C070007C9FC9 = {
@@ -145,7 +145,7 @@
 				};
 			};
 			buildConfigurationList = D24733542561C070007C9FC9 /* Build configuration list for PBXProject "PushNotifications" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -178,6 +178,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		F512FB4B258DFB9A00A8122F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -200,11 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D24733812561DC5C007C9FC9 /* ApnsUploads.swift in Sources */,
+				D23B404E28838D7B00B6877B /* PushNotifications.swift in Sources */,
 				D26AEB5E2561E9EE00F3AA6C /* Persistence.swift in Sources */,
-				D26AEB582561E21800F3AA6C /* NotificationDelegate.swift in Sources */,
-				D247337E2561D5BB007C9FC9 /* TokenDetails.swift in Sources */,
 				D26AEB5D2561E9EE00F3AA6C /* Model.xcdatamodeld in Sources */,
+				D23B404F28838D7B00B6877B /* NotificationCenter.swift in Sources */,
+				D23B404D28838D7B00B6877B /* TokenDetails.swift in Sources */,
 				D24733772561C323007C9FC9 /* AppDelegate.swift in Sources */,
 				D247335F2561C070007C9FC9 /* ContentView.swift in Sources */,
 				D247335D2561C070007C9FC9 /* PushNotificationsApp.swift in Sources */,
@@ -265,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -320,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,7 +342,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PushNotifications/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +365,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PushNotifications/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

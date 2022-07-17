@@ -1,9 +1,7 @@
-// swiftlint:disable force_unwrapping
-
 import Foundation
 
 extension UserDefaults {
-  static let suiteName = "group.com.raywenderlich.PushNotification"
+  static let suiteName = "group.com.raywenderlich.PushNotifications"
   static let extensions = UserDefaults(suiteName: suiteName)!
 
   private enum Keys {

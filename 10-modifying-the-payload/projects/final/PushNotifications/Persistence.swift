@@ -1,5 +1,3 @@
-// swiftlint:disable force_unwrapping
-
 import CoreData
 
 struct PersistenceController {
@@ -18,14 +16,13 @@ struct PersistenceController {
     if inMemory {
       url = URL(fileURLWithPath: "/dev/null")
     } else {
-      let groupName = "group.com.raywenderlich.PushNotification"
+      let groupName = "group.com.raywenderlich.PushNotifications"
       url = FileManager.default
         .containerURL(forSecurityApplicationGroupIdentifier: groupName)!
         .appendingPathComponent("PushNotifications.sqlite")
     }
 
     container.persistentStoreDescriptions.first!.url = url
-
     container.loadPersistentStores { _, error in
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")

@@ -2,23 +2,32 @@ import Foundation
 
 struct TokenDetails {
   private let encoder = JSONEncoder()
+
   let token: String
-  var debug = false
+  let debug: Bool
+  let language: String
 
   init(token: Data) {
     self.token = token.reduce("") { $0 + String(format: "%02x", $1) }
-    self.encoder.outputFormatting = .prettyPrinted
+    language = Locale.preferredLanguages[0]
+
+  #if DEBUG
+    encoder.outputFormatting = .prettyPrinted
+    debug = true
+    print(String(describing: self))
+  #else
+    debug = false
+  #endif
   }
 
   func encoded() -> Data {
-    // swiftlint:disable:next force_try
     return try! encoder.encode(self)
   }
 }
 
 extension TokenDetails: Encodable {
   private enum CodingKeys: CodingKey {
-    case token, debug
+    case token, debug, language
   }
 }
 
