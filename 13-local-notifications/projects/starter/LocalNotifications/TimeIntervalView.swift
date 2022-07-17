@@ -7,7 +7,7 @@ struct TimeIntervalView: View {
   @State private var seconds = ""
   @State private var alert = false
 
-  let onComplete: (UNNotificationTrigger, CommonFieldsModel) -> Void
+  let onComplete: (UNNotificationTrigger, CommonFieldsModel) async throws -> Void
 
   var body: some View {
     Form {
@@ -26,13 +26,15 @@ struct TimeIntervalView: View {
   }
 
   private func doneButtonTapped() {
-    let value = seconds.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    guard !value.isEmpty, let interval = TimeInterval(value), interval > 0 else {
-      alert.toggle()
-      return
+    Task { @MainActor in
+      let value = seconds.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+      guard !value.isEmpty, let interval = TimeInterval(value), interval > 0 else {
+        alert.toggle()
+        return
+      }
+  
+      presentationMode.wrappedValue.dismiss()
     }
-
-    presentationMode.wrappedValue.dismiss()
   }
 }
 

@@ -27,7 +27,7 @@ struct LocationValidationView: View {
     NavigationView {
       // swiftlint:disable:next trailing_closure
       Map(coordinateRegion: $region, annotationItems: [location]) {
-        MapPin(coordinate: $0.coordinate, tint: .green)
+        MapMarker(coordinate: $0.coordinate, tint: .green)
       }
       .edgesIgnoringSafeArea([.horizontal, .bottom])
       .toolbar(content: {

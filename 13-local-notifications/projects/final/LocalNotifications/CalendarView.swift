@@ -9,7 +9,7 @@ struct CalendarView: View {
   @State private var seconds = ""
   @State private var alert = false
 
-  let onComplete: (UNNotificationTrigger, CommonFieldsModel) -> Void
+  let onComplete: (UNNotificationTrigger, CommonFieldsModel) async throws -> Void
 
   var body: some View {
     Form {
@@ -34,23 +34,25 @@ struct CalendarView: View {
   }
 
   private func doneButtonTapped() {
-    var components = DateComponents()
-    components.second = seconds.toInt(minimum: 1, maximum: 59)
-    components.minute = minutes.toInt(minimum: 1, maximum: 59)
-    components.hour = hours.toInt(minimum: 1, maximum: 23)
+    Task { @MainActor in
+      var components = DateComponents()
+      components.second = seconds.toInt(minimum: 1, maximum: 59)
+      components.minute = minutes.toInt(minimum: 1, maximum: 59)
+      components.hour = hours.toInt(minimum: 1, maximum: 23)
+      
+      guard !(components.second == nil && components.minute == nil && components.hour == nil) else {
+        alert.toggle()
+        return
+      }
+      
+      let trigger = UNCalendarNotificationTrigger(
+        dateMatching: components,
+        repeats: commonFields.isRepeating)
 
-    guard !(components.second == nil && components.minute == nil && components.hour == nil) else {
-      alert.toggle()
-      return
+      try await onComplete(trigger, commonFields)
+
+      presentationMode.wrappedValue.dismiss()
     }
-
-    let trigger = UNCalendarNotificationTrigger(
-      dateMatching: components,
-      repeats: commonFields.isRepeating)
-
-    onComplete(trigger, commonFields)
-
-    presentationMode.wrappedValue.dismiss()
   }
 }
 

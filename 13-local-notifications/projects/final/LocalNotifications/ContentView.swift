@@ -24,7 +24,7 @@ struct ContentView: View {
               ForEach(localNotifications.pending, id: \.identifier) {
                 HistoryCell(for: $0)
               }
-              .onDelete(perform: removePendingNotifications)
+              .onDelete(perform: deletePendingNotification)
             }
             Section(header: Text("Delivered")) {
               ForEach(localNotifications.delivered, id: \.request.identifier) {
@@ -54,7 +54,7 @@ struct ContentView: View {
         ])
     }
     .sheet(isPresented: $showSheet) {
-      localNotifications.refreshNotifications()
+      Task { @MainActor in try await localNotifications.refreshNotifications() }
     } content: {
       NavigationView {
         switch sheetType {
@@ -73,7 +73,9 @@ struct ContentView: View {
         message: Text($0.text),
         dismissButton: .default(Text("OK")))
     }
-    .onAppear(perform: localNotifications.requestAuthorization)
+    .task {
+      try? await localNotifications.requestAuthorization()
+    }
   }
 
   private func actionSheetButton(text: String, type: SheetType) -> Alert.Button {
@@ -83,20 +85,26 @@ struct ContentView: View {
     }
   }
 
-  private func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) {
-    localNotifications.scheduleNotification(
-      trigger: trigger,
-      model: commonFields) {
-      alertText = AlertText(text: $0)
+  private func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) async {
+    do {
+      try await localNotifications.scheduleNotification(trigger: trigger, model: commonFields)
+    } catch {
+      alertText = AlertText(text: error.localizedDescription)
     }
   }
 
-  private func removePendingNotifications(at offsets: IndexSet) {
+  private func deletePendingNotification(at offsets: IndexSet) {
     let identifiers = offsets.map {
       localNotifications.pending[$0].identifier
     }
 
-    localNotifications.removePendingNotifications(identifiers: identifiers)
+    Task { @MainActor in
+      do {
+        try await localNotifications.removePendingNotifications(identifiers: identifiers)
+      } catch {
+        alertText = AlertText(text: error.localizedDescription)
+      }
+    }
   }
 }
 

@@ -8,7 +8,7 @@ struct LocationForm: View {
   @Environment(\.presentationMode) private var presentationMode
   @StateObject private var model = LocationLookupViewModel()
 
-  let onComplete: (UNNotificationTrigger, CommonFieldsModel) -> Void
+  let onComplete: (UNNotificationTrigger, CommonFieldsModel) async throws -> Void
 
   var body: some View {
     Form {
@@ -57,28 +57,30 @@ struct LocationForm: View {
   }
 
   private func doneButtonTapped() {
-    let radiusStr = model.radius.trimmingCharacters(in: .whitespacesAndNewlines)
-
-    guard !radiusStr.isEmpty, let distance = CLLocationDistance(radiusStr) else {
-      model.alertText = AlertText(text: "Please specify numerical radius.")
-      return
+    Task { @MainActor in
+      let radiusStr = model.radius.trimmingCharacters(in: .whitespacesAndNewlines)
+      
+      guard !radiusStr.isEmpty, let distance = CLLocationDistance(radiusStr) else {
+        model.alertText = AlertText(text: "Please specify numerical radius.")
+        return
+      }
+      
+      guard let coordinates = model.coordinate else {
+        return
+      }
+      
+      let region = CLCircularRegion(
+        center: coordinates,
+        radius: distance,
+        identifier: UUID().uuidString)
+      
+      region.notifyOnExit = model.notifyOnExit
+      region.notifyOnEntry = model.notifyOnEntry
+      
+      let trigger = UNLocationNotificationTrigger(region: region, repeats: commonFields.isRepeating)
+      try await onComplete(trigger, commonFields)
+      
+      presentationMode.wrappedValue.dismiss()
     }
-
-    guard let coordinates = model.coordinate else {
-      return
-    }
-
-    let region = CLCircularRegion(
-      center: coordinates,
-      radius: distance,
-      identifier: UUID().uuidString)
-
-    region.notifyOnExit = model.notifyOnExit
-    region.notifyOnEntry = model.notifyOnEntry
-
-    let trigger = UNLocationNotificationTrigger(region: region, repeats: commonFields.isRepeating)
-    onComplete(trigger, commonFields)
-
-    presentationMode.wrappedValue.dismiss()
   }
 }

@@ -35,7 +35,7 @@ struct ContentView: View {
         ])
     }
     .sheet(isPresented: $showSheet) {
-      //      localNotifications.refreshNotifications()
+      // Code to run when sheet is dismissed
     } content: {
       NavigationView {
         switch sheetType {

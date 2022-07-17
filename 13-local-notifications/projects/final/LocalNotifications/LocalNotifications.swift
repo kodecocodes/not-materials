@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 
+@MainActor
 final class LocalNotifications: NSObject, ObservableObject {
   @Published var authorized = false
   @Published var pending: [UNNotificationRequest] = []
@@ -13,43 +14,26 @@ final class LocalNotifications: NSObject, ObservableObject {
     center.delegate = self
   }
 
-  func requestAuthorization() {
-    center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] granted, error in
-      if let error = error {
-        print(error.localizedDescription)
-      }
-
-      DispatchQueue.main.async {
-        self?.authorized = granted
-      }
-    }
+  func requestAuthorization() async throws {
+    authorized = try await center.requestAuthorization(options: [.badge, .sound, .alert])
   }
 
-  func refreshNotifications() {
-    center.getPendingNotificationRequests { requests in
-      DispatchQueue.main.async {
-        self.pending = requests
-      }
-    }
-
-    center.getDeliveredNotifications { delivered in
-      DispatchQueue.main.async {
-        self.delivered = delivered
-      }
-    }
+  func refreshNotifications() async throws {
+    pending = await center.pendingNotificationRequests()
+    delivered = await center.deliveredNotifications()
   }
 
-  func removePendingNotifications(identifiers: [String]) {
+  func removePendingNotifications(identifiers: [String]) async throws {
     center.removePendingNotificationRequests(withIdentifiers: identifiers)
-    refreshNotifications()
+    try await refreshNotifications()
   }
 
-  func removeDeliveredNotifications(identifiers: [String]) {
+  func removeDeliveredNotifications(identifiers: [String]) async throws {
     center.removeDeliveredNotifications(withIdentifiers: identifiers)
-    refreshNotifications()
+    try await refreshNotifications()
   }
 
-  func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel, onError: @escaping (String) -> Void) {
+  func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) async throws {
     let title = model.title.trimmingCharacters(in: .whitespacesAndNewlines)
 
     let content = UNMutableNotificationContent()
@@ -69,22 +53,12 @@ final class LocalNotifications: NSObject, ObservableObject {
       content: content,
       trigger: trigger)
 
-    center.add(request) { error in
-      guard let error = error else { return }
-
-      DispatchQueue.main.async {
-        onError(error.localizedDescription)
-      }
-    }
+    try await center.add(request)
   }
 }
 
 extension LocalNotifications: UNUserNotificationCenterDelegate {
-  func userNotificationCenter(
-    _ center: UNUserNotificationCenter,
-    willPresent notification: UNNotification,
-    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-  ) {
-    completionHandler([.banner, .badge, .sound])
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+    return [.banner, .badge, .sound]
   }
 }
