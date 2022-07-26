@@ -6,9 +6,10 @@ import MapKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
   var region: MKCoordinateRegion!
+  var locationName: String?
 
   override func loadView() {
-    let rootView = MapView(region: region)
+    let rootView = MapView(region: region, locationName: locationName)
     let host = UIHostingController(rootView: rootView)
     host.view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -25,9 +26,13 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
   func didReceive(_ notification: UNNotification) {
     let userInfo = notification.request.content.userInfo
 
-    guard let latitude = userInfo["latitude"] as? CLLocationDistance,
-          let longitude = userInfo["longitude"] as? CLLocationDistance,
-          let radius = userInfo["radius"] as? CLLocationDistance else {
+    locationName = userInfo["title"] as? String
+
+    guard
+      let latitude = userInfo["latitude"] as? CLLocationDistance,
+      let longitude = userInfo["longitude"] as? CLLocationDistance,
+      let radius = userInfo["radius"] as? CLLocationDistance
+    else {
       // Default to Apple Park if nothing provided
       region = .init(
         center: .init(latitude: 37.334886, longitude: -122.008988),

@@ -9,7 +9,7 @@ class NotificationService: UNNotificationServiceExtension {
     self.contentHandler = contentHandler
     bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
-    guard let bestAttemptContent = bestAttemptContent else {
+    guard let bestAttemptContent else {
       return
     }
 
@@ -40,7 +40,7 @@ class NotificationService: UNNotificationServiceExtension {
     URLSession.shared.dataTask(with: url) { data, response, _ in
       defer { contentHandler(bestAttemptContent) }
 
-      guard let data = data else { return }
+      guard let data else { return }
 
       let file = response?.suggestedFilename ?? url.lastPathComponent
       let destination = URL(fileURLWithPath: NSTemporaryDirectory())
@@ -61,7 +61,7 @@ class NotificationService: UNNotificationServiceExtension {
   override func serviceExtensionTimeWillExpire() {
     // Called just before the extension will be terminated by the system.
     // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-    if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
+    if let contentHandler, let bestAttemptContent {
       contentHandler(bestAttemptContent)
     }
   }

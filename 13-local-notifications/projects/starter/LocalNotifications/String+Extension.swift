@@ -8,7 +8,7 @@ extension String {
       return nil
     }
 
-    if let maximum = maximum, ret > maximum {
+    if let maximum, ret > maximum {
       return nil
     }
 

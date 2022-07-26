@@ -14,7 +14,7 @@ final class Geocoder {
     Deferred {
       Future { promise in
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
-          if let error = error {
+          if let error {
             promise(.failure(.other(error)))
             return
           }

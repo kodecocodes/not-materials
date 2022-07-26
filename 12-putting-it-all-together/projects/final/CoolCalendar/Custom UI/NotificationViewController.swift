@@ -63,7 +63,7 @@ class NotificationViewController: UIViewController {
     calendarKitEvent.endDate = end
     calendarKitEvent.text = title
 
-    if let cgColor = cgColor {
+    if let cgColor {
       calendarKitEvent.backgroundColor = UIColor(cgColor: cgColor)
     }
 

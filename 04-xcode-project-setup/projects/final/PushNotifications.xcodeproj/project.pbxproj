@@ -149,6 +149,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		181FE31D248EA6C900A180EA /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
