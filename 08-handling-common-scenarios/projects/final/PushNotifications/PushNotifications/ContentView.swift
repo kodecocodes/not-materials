@@ -9,10 +9,13 @@ struct ContentView: View {
 
   @EnvironmentObject var notificationCenter: NotificationCenter
 
+  @State private var path: [Message] = []
+
   private func image(for message: Message) -> Image {
     guard
       let image = message.image,
-      let uiImage = UIImage(data: image) else {
+      let uiImage = UIImage(data: image)
+    else {
         return Image(systemName: "photo")
       }
 
@@ -20,7 +23,7 @@ struct ContentView: View {
   }
 
   var body: some View {
-    NavigationView {
+    NavigationStack(path: $path) {
       VStack {
         List(messages) { message in
           HStack {
@@ -28,16 +31,12 @@ struct ContentView: View {
               .resizable()
               .frame(width: 96, height: 54)
 
-            Text(message.text ?? "")
-              .font(.headline)
+            NavigationLink(message.text ?? "", value: message)
           }
         }
-
-        NavigationLink(
-          destination: BeachView(),
-          isActive: $notificationCenter.isBeachViewActive) {
-            EmptyView()
-          }
+        .navigationDestination(for: Message.self) { message in
+          BeachView()
+        }
       }
     }
   }

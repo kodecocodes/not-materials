@@ -16,9 +16,7 @@ struct PersistenceController {
       container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
     }
 
-    print("Loading")
     container.loadPersistentStores { _, error in
-      print("Loaded")
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }

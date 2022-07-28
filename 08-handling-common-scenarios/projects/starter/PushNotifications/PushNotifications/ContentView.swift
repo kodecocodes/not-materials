@@ -2,6 +2,8 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+  @State private var path: [Message] = []
+
   @FetchRequest(entity: Message.entity(), sortDescriptors: [
     NSSortDescriptor(keyPath: \Message.received, ascending: true)
   ])
@@ -18,15 +20,19 @@ struct ContentView: View {
   }
 
   var body: some View {
-    VStack {
-      List(messages) { message in
-        HStack {
-          image(for: message)
-            .resizable()
-            .frame(width: 96, height: 54)
+    NavigationStack(path: $path) {
+      VStack {
+        List(messages) { message in
+          HStack {
+            image(for: message)
+              .resizable()
+              .frame(width: 96, height: 54)
 
-          Text(message.text ?? "")
-            .font(.headline)
+            NavigationLink(message.text ?? "", value: message)
+          }
+        }
+        .navigationDestination(for: Message.self) { message in
+          BeachView()
         }
       }
     }
