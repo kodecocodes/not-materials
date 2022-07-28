@@ -1,14 +1,11 @@
 import UserNotifications
 import CoreData
 
-final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
-  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    completionHandler([.banner, .sound, .badge])
-  }
-
-  private func createInvite(with title: String, starting: Date, ending: Date, accepted: Bool) {
+final class NotificationCenter: NSObject {
+  private func createInvite(with title: String, starting: Date, ending: Date, accepted: Bool) async {
     let context = PersistenceController.shared.container.viewContext
-    context.perform {
+
+    await context.perform(schedule: .enqueued) {
       let invite = Invite(context: context)
       invite.title = title
       invite.start = starting
@@ -18,14 +15,17 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
       try? context.save()
     }
   }
+}
 
+extension NotificationCenter: UNUserNotificationCenterDelegate {
   func userNotificationCenter(
     _ center: UNUserNotificationCenter,
-    didReceive response: UNNotificationResponse,
-    withCompletionHandler completionHandler: @escaping () -> Void
-  ) {
-    defer { completionHandler() }
+    willPresent notification: UNNotification
+  ) async -> UNNotificationPresentationOptions {
+    return [.banner, .sound, .badge]
+  }
 
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
     let formatter = ISO8601DateFormatter()
     let content = response.notification.request.content
 
@@ -44,19 +44,11 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     switch choice {
     case .accept:
       Server.shared.acceptInvitation(with: calendarIdentifier)
-      createInvite(
-        with: title,
-        starting: startDate,
-        ending: endDate,
-        accepted: true)
+      await createInvite(with: title, starting: startDate, ending: endDate, accepted: true)
 
     case .decline:
       Server.shared.declineInvitation(with: calendarIdentifier)
-      createInvite(
-        with: title,
-        starting: startDate,
-        ending: endDate,
-        accepted: false)
+      await createInvite(with: title, starting: startDate, ending: endDate, accepted: false)
 
     default:
       break

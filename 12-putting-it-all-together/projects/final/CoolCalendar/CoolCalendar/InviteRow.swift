@@ -1,5 +1,3 @@
-// swiftlint:disable force_unwrapping
-
 import SwiftUI
 import CoreData
 

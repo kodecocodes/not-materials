@@ -1,8 +1,7 @@
 import Foundation
 
 extension UserDefaults {
-  // swiftlint:disable:next force_unwrapping
-  static let appGroup = UserDefaults(suiteName: "group.com.raywenderlich.CoolCalendar")!
+  static let appGroup = UserDefaults(suiteName: "group.com.gargoylesoft.CoolCalendar")!
 
   private enum Keys {
     static let badge = "badge"

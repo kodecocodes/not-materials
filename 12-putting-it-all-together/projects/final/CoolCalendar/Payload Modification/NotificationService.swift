@@ -32,8 +32,12 @@ class NotificationService: UNNotificationServiceExtension {
   }
 
   private func updateBadge() {
-    guard let bestAttemptContent = bestAttemptContent,
-      let increment = bestAttemptContent.badge as? Int else { return }
+    guard
+      let bestAttemptContent,
+      let increment = bestAttemptContent.badge as? Int
+    else {
+      return
+    }
 
     if increment == 0 {
       UserDefaults.appGroup.badge = 0
@@ -48,7 +52,7 @@ class NotificationService: UNNotificationServiceExtension {
   }
 
   private func updateText(request: UNNotificationRequest) {
-    guard let bestAttemptContent = bestAttemptContent else { return }
+    guard let bestAttemptContent else { return }
 
     let formatter = ISO8601DateFormatter()
     let authStatus = EKEventStore.authorizationStatus(for: .event)

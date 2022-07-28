@@ -1,16 +1,21 @@
-// swiftlint:disable weak_delegate
-
 import UIKit
+import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  let notificationDelegate = NotificationDelegate()
+  let notificationCenter = NotificationCenter()
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    registerForPushNotifications(application: application)
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions:
+                   [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    PushNotifications.register(in: application, using: notificationCenter)
+
     return true
   }
 
-  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    sendPushNotificationDetails(to: "http://192.168.1.39:8080/token", using: deviceToken)
+  func application(
+    _ application: UIApplication,
+    didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+  ) {
+    PushNotifications.send(token: deviceToken, to: "http://192.168.1.1:8080")
   }
 }

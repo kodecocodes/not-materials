@@ -1,5 +1,3 @@
-// swiftlint:disable force_unwrapping
-
 import UserNotifications
 import UserNotificationsUI
 import CalendarKit
@@ -59,8 +57,7 @@ class NotificationViewController: UIViewController {
 
   func addCalendarKitEvent(start: Date, end: Date, title: String, cgColor: CGColor? = nil) -> EventLayoutAttributes {
     let calendarKitEvent = Event()
-    calendarKitEvent.startDate = start
-    calendarKitEvent.endDate = end
+    calendarKitEvent.dateInterval = .init(start: start, end: end)
     calendarKitEvent.text = title
 
     if let cgColor {
@@ -99,20 +96,14 @@ extension NotificationViewController: UNNotificationContentExtension {
     calendarIdentifier = id
 
     var appointments = [
-      addCalendarKitEvent(
-        start: startDate,
-        end: endDate,
-        title: title)
+      addCalendarKitEvent(start: startDate, end: endDate, title: title)
     ]
 
     let calendar = Calendar.current
     let displayStart = calendar.date(byAdding: .hour, value: -2, to: startDate)!
     let displayEnd = calendar.date(byAdding: .hour, value: 2, to: endDate)!
 
-    let predicate = eventStore.predicateForEvents(
-      withStart: displayStart,
-      end: displayEnd,
-      calendars: nil)
+    let predicate = eventStore.predicateForEvents(withStart: displayStart, end: displayEnd, calendars: nil)
 
     appointments += eventStore
       .events(matching: predicate)
@@ -131,23 +122,23 @@ extension NotificationViewController: UNNotificationContentExtension {
     timelineContainer.scrollTo(hour24: Float(hour))
   }
 
-  func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
-    guard let choice = ActionIdentifier(rawValue: response.actionIdentifier)
+  func didReceive(_ response: UNNotificationResponse) async -> UNNotificationContentExtensionResponseOption {
+    guard
+      let choice = ActionIdentifier(rawValue: response.actionIdentifier)
     else {
       // This shouldn't happen but definitely don't crash.
       // Let the users report a bug that nothing happens
       // for this choice so you can fix it.
-      completion(.doNotDismiss)
-      return
+      return .doNotDismiss
     }
 
     switch choice {
     case .accept, .decline:
-      completion(.dismissAndForwardAction)
+      return .dismissAndForwardAction
     case .comment:
       becomeFirstResponder()
       keyboardTextField.becomeFirstResponder()
-      completion(.doNotDismiss)
+      return .doNotDismiss
     }
   }
 }
@@ -158,7 +149,8 @@ extension NotificationViewController: UITextFieldDelegate {
     guard
       textField == keyboardTextField,
       let text = textField.text,
-      let calendarIdentifier = calendarIdentifier else {
+      let calendarIdentifier = calendarIdentifier
+    else {
       return true
     }
 
@@ -167,6 +159,7 @@ extension NotificationViewController: UITextFieldDelegate {
 
     keyboardTextField.resignFirstResponder()
     resignFirstResponder()
+
     return true
   }
 }

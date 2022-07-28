@@ -6,7 +6,6 @@ struct ContentView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @State private var eventStore = EKEventStore()
   @State private var askForCalendarPermissions = false
-
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Invite.start, ascending: true)],
     animation: .default
@@ -15,19 +14,16 @@ struct ContentView: View {
 
   var body: some View {
     List(invites) { InviteRow(invite: $0) }
-      .onAppear(perform: onAppear)
+      .task { try? await onAppear() }
       .actionSheet(isPresented: $askForCalendarPermissions, content: actionSheet)
   }
 
-  private func onAppear() {
+  private func onAppear() async throws {
     let status = EKEventStore.authorizationStatus(for: .event)
 
     switch status {
     case .notDetermined:
-      eventStore.requestAccess(to: .event) { granted, _ in
-        guard !granted else { return }
-        askForCalendarPermissions = true
-      }
+      askForCalendarPermissions = !(try await eventStore.requestAccess(to: .event))
 
     case .authorized:
       break
@@ -44,7 +40,6 @@ struct ContentView: View {
       buttons: [
         .default(Text("Settings")) {
           let str = UIApplication.openSettingsURLString
-          // swiftlint:disable:next force_unwrapping
           UIApplication.shared.open(URL(string: str)!)
         },
         .cancel()

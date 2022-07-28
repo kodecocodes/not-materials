@@ -47,8 +47,7 @@ class NotificationViewController: UIViewController {
 
   func addCalendarKitEvent(start: Date, end: Date, title: String, cgColor: CGColor? = nil) -> EventLayoutAttributes {
     let calendarKitEvent = Event()
-    calendarKitEvent.startDate = start
-    calendarKitEvent.endDate = end
+    calendarKitEvent.dateInterval = .init(start: start, end: end)
     calendarKitEvent.text = title
 
     if let cgColor {

@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CalendarKit",
-        "repositoryURL": "https://github.com/richardtop/CalendarKit.git",
-        "state": {
-          "branch": "master",
-          "revision": "5db53e45a972ad8b2127648ae2d1c2df9be94214",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "calendarkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/richardtop/CalendarKit.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "3125c7ad3f3cff9855e6896e4c4aed60d2cd1ce3"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
