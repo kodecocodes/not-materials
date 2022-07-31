@@ -89,7 +89,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
   }
 
   func didReceive(_ response: UNNotificationResponse) async -> UNNotificationContentExtensionResponseOption {
-    becomeFirstResponder()
+    _ = becomeFirstResponder()
 
     return .doNotDismiss
   }

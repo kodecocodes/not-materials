@@ -15,6 +15,7 @@ class PaymentView: UIView {
     slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
     slider.minimumValue = 100
     slider.maximumValue = 10_000
+    slider.value = (slider.minimumValue + slider.maximumValue) / 2
     slider.translatesAutoresizingMaskIntoConstraints = false
     return slider
   }()

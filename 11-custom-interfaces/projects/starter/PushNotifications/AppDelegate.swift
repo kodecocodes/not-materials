@@ -1,5 +1,4 @@
 import UIKit
-import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   let notificationCenter = NotificationCenter()
