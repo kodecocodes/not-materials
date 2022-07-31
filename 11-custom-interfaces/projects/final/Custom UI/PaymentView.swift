@@ -1,15 +1,15 @@
 import UIKit
 
 class PaymentView: UIView {
-  var onPaymentRequested: ((NSDecimalNumber) -> Void)?
-  
+  private var onPaymentRequested: ((NSDecimalNumber) -> Void)?
+
   private lazy var label: UILabel = {
     let label = UILabel()
     label.text = numberFormatter.string(from: NSNumber(value: 1000))
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
-  
+
   private lazy var slider: UISlider = {
     let slider = UISlider()
     slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
@@ -18,7 +18,7 @@ class PaymentView: UIView {
     slider.translatesAutoresizingMaskIntoConstraints = false
     return slider
   }()
-  
+
   private lazy var requestButton: UIButton = {
     let button = UIButton()
     button.setTitle("Request Payment", for: .normal)
@@ -36,11 +36,12 @@ class PaymentView: UIView {
 
     return formatter
   }()
-  
-  convenience init() {
+
+  convenience init(onPaymentRequested: ((NSDecimalNumber) -> Void)?) {
     self.init(frame: CGRect(origin: .zero, size: CGSize(width: 275, height: 375)))
+    self.onPaymentRequested = onPaymentRequested
   }
-  
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     backgroundColor = .white
@@ -60,16 +61,16 @@ class PaymentView: UIView {
 
     sliderValueChanged(slider)
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   @objc private func sliderValueChanged(_ sender: UISlider) {
     let value = NSDecimalNumber(value: sender.value)
     label.text = numberFormatter.string(from: value)
   }
-  
+
   @objc private func requestPayment() {
     let payment = NSDecimalNumber(value: self.slider.value)
     UIView.animate(

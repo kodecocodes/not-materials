@@ -3,17 +3,18 @@ import MapKit
 
 struct MapView: View {
   let region: MKCoordinateRegion
-  let locationName: String?
+  let image: Image?
 
   var body: some View {
-    VStack {
-      Map(coordinateRegion: .constant(region))
-
-      if let locationName {
-        Text(locationName)
-          .font(.title)
+    Map(coordinateRegion: .constant(region))
+      .overlay(alignment: .topTrailing) {
+        if let image {
+          image
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 80.0, height: 80.0)
+        }
       }
-    }
   }
 }
 
@@ -22,6 +23,6 @@ struct MapView_Previews: PreviewProvider {
     MapView(region: .init(
       center: .init(latitude: 37.334886, longitude: -122.008988),
       span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
-    ), locationName: "This is a test")
+    ), image: nil)
   }
 }

@@ -1,5 +1,3 @@
-// swiftlint:disable multiline_function_chains
-
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
@@ -8,14 +6,15 @@ class NotificationService: UNNotificationServiceExtension {
 
   override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
     self.contentHandler = contentHandler
-    bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
-    guard let bestAttemptContent = bestAttemptContent else {
+    guard let bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
       return
     }
 
-    guard let urlPath = request.content.userInfo["media-url"] as? String,
-      let url = URL(string: urlPath) else {
+    guard
+      let urlPath = request.content.userInfo["media-url"] as? String,
+      let url = URL(string: urlPath)
+    else {
       contentHandler(bestAttemptContent)
       return
     }
@@ -23,7 +22,7 @@ class NotificationService: UNNotificationServiceExtension {
     URLSession.shared.dataTask(with: url) { data, response, _ in
       defer { contentHandler(bestAttemptContent) }
 
-      guard let data = data else { return }
+      guard let data else { return }
 
       let destination = URL(fileURLWithPath: NSTemporaryDirectory())
         .appendingPathComponent(response?.suggestedFilename ?? url.lastPathComponent)
@@ -31,10 +30,9 @@ class NotificationService: UNNotificationServiceExtension {
       do {
         try data.write(to: destination)
 
-        let attachment = try UNNotificationAttachment(
-          identifier: "",
-          url: destination)
-        bestAttemptContent.attachments = [attachment]
+        bestAttemptContent.attachments = [
+          try .init(identifier: "", url: destination)
+        ]
       } catch {
       }
     }.resume()

@@ -2,6 +2,12 @@ import UIKit
 import UserNotifications
 
 enum PushNotifications {
+  public enum ActionIdentifier: String {
+    case payment
+  }
+
+  private static let categoryIdentifier = "ShowMap"
+
   static func send(token: Data, to url: String) {
     guard let url = URL(string: url) else {
       fatalError("Invalid URL string")
@@ -34,5 +40,19 @@ enum PushNotifications {
         application.registerForRemoteNotifications()
       }
     }
+  }
+
+  static func registerCustomActions() {
+    let identifier = ActionIdentifier.payment.rawValue
+    let payment = UNNotificationAction(
+      identifier: identifier,
+      title: "Payment")
+
+    let category = UNNotificationCategory(
+      identifier: categoryIdentifier,
+      actions: [payment],
+      intentIdentifiers: [])
+
+    UNUserNotificationCenter.current().setNotificationCategories([category])
   }
 }

@@ -1,7 +1,6 @@
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
-
   var contentHandler: ((UNNotificationContent) -> Void)?
   var bestAttemptContent: UNMutableNotificationContent?
 
@@ -9,9 +8,7 @@ class NotificationService: UNNotificationServiceExtension {
     self.contentHandler = contentHandler
     bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
-    guard let bestAttemptContent = bestAttemptContent else {
-      return
-    }
+    guard let bestAttemptContent else { return }
 
     guard
       let urlPath = request.content.userInfo["media-url"] as? String,
@@ -24,11 +21,10 @@ class NotificationService: UNNotificationServiceExtension {
     URLSession.shared.dataTask(with: url) { data, response, _ in
       defer { contentHandler(bestAttemptContent) }
 
-      guard let data = data else { return }
+      guard let data else { return }
 
-      let file = response?.suggestedFilename ?? url.lastPathComponent
       let destination = URL(fileURLWithPath: NSTemporaryDirectory())
-        .appendingPathComponent(file)
+        .appendingPathComponent(response?.suggestedFilename ?? url.lastPathComponent)
 
       do {
         try data.write(to: destination)
