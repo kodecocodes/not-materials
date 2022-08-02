@@ -1,3 +1,11 @@
+//
+//  NotificationService.swift
+//  Payload Modification
+//
+//  Created by Marin Bencevic on 02.08.2022..
+//  Copyright © 2022 Ray Wenderlich. All rights reserved.
+//
+
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
@@ -6,7 +14,6 @@ class NotificationService: UNNotificationServiceExtension {
   var bestAttemptContent: UNMutableNotificationContent?
 
   override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-    self.contentHandler = contentHandler
     bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
     guard let bestAttemptContent else {
@@ -25,7 +32,7 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent.badge = NSNumber(value: new)
       }
     }
-    
+
     bestAttemptContent.title = ROT13.shared.decrypt(bestAttemptContent.title)
     bestAttemptContent.body = ROT13.shared.decrypt(bestAttemptContent.body)
 
@@ -37,31 +44,29 @@ class NotificationService: UNNotificationServiceExtension {
       return
     }
 
-    URLSession.shared.dataTask(with: url) { data, response, _ in
+    Task {
       defer { contentHandler(bestAttemptContent) }
 
-      guard let data else { return }
-
-      let file = response?.suggestedFilename ?? url.lastPathComponent
-      let destination = URL(fileURLWithPath: NSTemporaryDirectory())
-        .appendingPathComponent(file)
-
       do {
+        let (data, response) = try await URLSession.shared.data(from: url)
+        let file = response.suggestedFilename ?? url.lastPathComponent
+        let destination = URL(fileURLWithPath: NSTemporaryDirectory())
+          .appendingPathComponent(file)
         try data.write(to: destination)
 
-        let attachment = try UNNotificationAttachment(
-          identifier: "",
-          url: destination)
+        let attachment = try UNNotificationAttachment(identifier: "", url: destination)
         bestAttemptContent.attachments = [attachment]
+        contentHandler(bestAttemptContent)
       } catch {
+        print("An error occurred.")
       }
-    }.resume()
+    }
   }
 
   override func serviceExtensionTimeWillExpire() {
     // Called just before the extension will be terminated by the system.
     // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-    if let contentHandler, let bestAttemptContent {
+    if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
       contentHandler(bestAttemptContent)
     }
   }

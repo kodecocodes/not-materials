@@ -37,12 +37,12 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchScreen</key>
-        <dict>
-                <key>UIImageName</key>
-                <string>splash</string>
-                <key>UIImageRespectsSafeAreaInsets</key>
-                <true/>
-        </dict>
+	<dict>
+		<key>UIImageName</key>
+		<string>splash</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
