@@ -1,46 +1,40 @@
 import SwiftUI
 import UserNotifications
 import UserNotificationsUI
+
 import CoreLocation
 import MapKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-  var region: MKCoordinateRegion!
-  var mapViewHost: UIHostingController<MapView>!
-
-  private lazy var paymentView: PaymentView = {
-    return PaymentView { [weak self] payment in
-      self?.resignFirstResponder()
-    }
-  }()
-
-  override var inputView: UIView? {
-    return paymentView
+  enum ActionIdentifier: String {
+    case accept
+    case cancel
   }
 
   override var canBecomeFirstResponder: Bool {
     return true
   }
 
-  func didReceive(_ notification: UNNotification) {
-    decodeUserInfo(notification)
+  private lazy var paymentView: PaymentView = {
+    let paymentView = PaymentView()
+    paymentView.onPaymentRequested = { [weak self] payment in
+      self?.resignFirstResponder()
+    }
+    return paymentView
+  }()
 
-    let mapView = MapView(region: region, image: getImage(notification))
-    mapViewHost = UIHostingController(rootView: mapView)
+  override var inputView: UIView? {
+    return paymentView
+  }
 
-    addChild(mapViewHost)
-    view.addSubview(mapViewHost.view)
+  var region: MKCoordinateRegion!
+  var mapViewHost: UIHostingController<MapView>!
 
-    mapViewHost.view.translatesAutoresizingMaskIntoConstraints = false
+  @IBOutlet var label: UILabel?
 
-    NSLayoutConstraint.activate([
-      mapViewHost.view.topAnchor.constraint(equalTo: view.topAnchor),
-      mapViewHost.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      mapViewHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      mapViewHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
-
-    mapViewHost.didMove(toParent: self)
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any required interface initialization here.
   }
 
   private func decodeUserInfo(_ notification: UNNotification) {
@@ -68,6 +62,30 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     )
   }
 
+  func didReceive(_ notification: UNNotification) {
+    decodeUserInfo(notification)
+    let mapView = MapView(region: region, image: getImage(notification))
+    mapViewHost = UIHostingController(rootView: mapView)
+    addChild(mapViewHost)
+    view.addSubview(mapViewHost.view)
+    mapViewHost.view.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      mapViewHost.view.topAnchor.constraint(equalTo: view.topAnchor),
+      mapViewHost.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      mapViewHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      mapViewHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
+    mapViewHost.didMove(toParent: self)
+  }
+
+  func didReceive(
+    _ response: UNNotificationResponse
+  ) async -> UNNotificationContentExtensionResponseOption {
+    _ = becomeFirstResponder()
+    return .doNotDismiss
+  }
+
   func getImage(_ notification: UNNotification) -> Image? {
     guard
       let attachment = notification.request.content.attachments.first,
@@ -86,11 +104,5 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     }
 
     return Image(uiImage: uimage)
-  }
-
-  func didReceive(_ response: UNNotificationResponse) async -> UNNotificationContentExtensionResponseOption {
-    _ = becomeFirstResponder()
-
-    return .doNotDismiss
   }
 }

@@ -8,8 +8,12 @@
 		<dict>
 			<key>UNNotificationExtensionCategory</key>
 			<string>ShowMap</string>
+			<key>UNNotificationExtensionDefaultContentHidden</key>
+			<true/>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
 			<real>1</real>
+			<key>UNNotificationExtensionUserInteractionEnabled</key>
+			<true/>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.usernotifications.content-extension</string>
