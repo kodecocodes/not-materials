@@ -2,22 +2,20 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+  @State private var path: [Message] = []
+  @EnvironmentObject var notificationCenter: NotificationCenter
+  
   @FetchRequest(entity: Message.entity(), sortDescriptors: [
     NSSortDescriptor(keyPath: \Message.received, ascending: true)
   ])
   var messages: FetchedResults<Message>
 
-  @EnvironmentObject var notificationCenter: NotificationCenter
-
-  @State private var path: [Message] = []
-
   private func image(for message: Message) -> Image {
     guard
       let image = message.image,
-      let uiImage = UIImage(data: image)
-    else {
-        return Image(systemName: "photo")
-      }
+      let uiImage = UIImage(data: image) else {
+      return Image(systemName: "photo")
+    }
 
     return Image(uiImage: uiImage)
   }
@@ -38,6 +36,10 @@ struct ContentView: View {
           BeachView()
         }
       }
+
+      if notificationCenter.isBeachViewActive {
+        BeachView()
+      }
     }
   }
 }
@@ -48,3 +50,4 @@ struct ContentView_Previews: PreviewProvider {
       .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }
+

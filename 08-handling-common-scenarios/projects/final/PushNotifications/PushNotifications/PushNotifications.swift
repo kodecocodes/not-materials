@@ -21,14 +21,16 @@ enum PushNotifications {
 
   static func register(
     in application: UIApplication,
-    using notificationCenterDelegate: UNUserNotificationCenterDelegate? = nil
+    // 1
+    using notificationDelegate: UNUserNotificationCenterDelegate? = nil
   ) {
     Task {
       let center = UNUserNotificationCenter.current()
 
       try await center.requestAuthorization(options: [.badge, .sound, .alert])
 
-      center.delegate = notificationCenterDelegate
+      // 2
+      center.delegate = notificationDelegate
 
       await MainActor.run {
         application.registerForRemoteNotifications()

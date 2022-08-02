@@ -4,6 +4,8 @@ final class NotificationCenter: NSObject {
   @Published var isBeachViewActive = false
 }
 
+extension NotificationCenter: ObservableObject {}
+
 extension NotificationCenter: UNUserNotificationCenterDelegate {
   func userNotificationCenter(
     _ center: UNUserNotificationCenter,
@@ -25,5 +27,3 @@ extension NotificationCenter: UNUserNotificationCenterDelegate {
     }
   }
 }
-
-extension NotificationCenter: ObservableObject {}

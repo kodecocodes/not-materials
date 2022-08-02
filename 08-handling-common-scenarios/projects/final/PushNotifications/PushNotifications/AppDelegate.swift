@@ -1,6 +1,6 @@
 import UIKit
-import CoreData
 import UserNotifications
+import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   let notificationCenter = NotificationCenter()
@@ -9,7 +9,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions:
                    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     PushNotifications.register(in: application, using: notificationCenter)
-
     return true
   }
 
@@ -32,9 +31,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let context = PersistenceController.shared.container.viewContext
 
     do {
+      let (imageData, _) = try await URLSession.shared.data(from: url)
+
       return try await context.perform(schedule: .immediate) { () throws -> UIBackgroundFetchResult in
         let message = Message(context: context)
-        message.image = try Data(contentsOf: url)
+        message.image = imageData
         message.received = Date()
         message.text = text
 

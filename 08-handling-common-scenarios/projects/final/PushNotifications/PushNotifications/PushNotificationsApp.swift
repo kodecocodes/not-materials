@@ -10,8 +10,8 @@ struct PushNotificationsApp: App {
   var body: some Scene {
     WindowGroup {
       ContentView()
-        .environmentObject(appDelegate.notificationCenter)
         .environment(\.managedObjectContext, controller.container.viewContext)
+        .environmentObject(appDelegate.notificationCenter)
     }
   }
 }
