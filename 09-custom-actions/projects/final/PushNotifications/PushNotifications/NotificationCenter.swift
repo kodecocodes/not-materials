@@ -11,7 +11,8 @@ extension NotificationCenter: UNUserNotificationCenterDelegate {
     return [.banner, .sound, .badge]
   }
 
-  func userNotificationCenter(
+  @MainActor
+  internal func userNotificationCenter(
     _ center: UNUserNotificationCenter,
     didReceive response: UNNotificationResponse
   ) async {

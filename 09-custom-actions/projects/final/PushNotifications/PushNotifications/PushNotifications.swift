@@ -57,5 +57,5 @@ enum PushNotifications {
       intentIdentifiers: [])
 
     UNUserNotificationCenter.current().setNotificationCategories([category])
-  } 
+  }
 }

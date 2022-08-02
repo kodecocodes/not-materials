@@ -15,9 +15,9 @@
 		D28A18792561FC88006C7355 /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18782561FC88006C7355 /* TokenDetails.swift */; };
 		D28A18912561FE24006C7355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24733762561C323007C9FC9 /* AppDelegate.swift */; };
 		D2ABC8032883872400600715 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABC8022883872400600715 /* PushNotifications.swift */; };
-		D2ABC8052883899900600715 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABC8042883899900600715 /* Counter.swift */; };
 		D2B34232256200FF0073185C /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B34231256200FF0073185C /* NotificationCenter.swift */; };
 		D2B342382562025F0073185C /* ColoredCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B342372562025F0073185C /* ColoredCounter.swift */; };
+		F587EEDC2899582F00544D3E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EEDB2899582F00544D3E /* Counter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +32,9 @@
 		D24733762561C323007C9FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D28A18782561FC88006C7355 /* TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetails.swift; sourceTree = "<group>"; };
 		D2ABC8022883872400600715 /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
-		D2ABC8042883899900600715 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		D2B34231256200FF0073185C /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		D2B342372562025F0073185C /* ColoredCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredCounter.swift; sourceTree = "<group>"; };
+		F587EEDB2899582F00544D3E /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +75,13 @@
 				D24733762561C323007C9FC9 /* AppDelegate.swift */,
 				D2B342372562025F0073185C /* ColoredCounter.swift */,
 				D247335E2561C070007C9FC9 /* ContentView.swift */,
-				D2ABC8042883899900600715 /* Counter.swift */,
 				D2B34231256200FF0073185C /* NotificationCenter.swift */,
 				D2ABC8022883872400600715 /* PushNotifications.swift */,
 				D247335C2561C070007C9FC9 /* PushNotificationsApp.swift */,
 				D28A18782561FC88006C7355 /* TokenDetails.swift */,
 				D24733602561C070007C9FC9 /* Assets.xcassets */,
 				D24733622561C070007C9FC9 /* Preview Content */,
+				F587EEDB2899582F00544D3E /* Counter.swift */,
 			);
 			path = PushNotifications;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2ABC8052883899900600715 /* Counter.swift in Sources */,
+				F587EEDC2899582F00544D3E /* Counter.swift in Sources */,
 				D2B34232256200FF0073185C /* NotificationCenter.swift in Sources */,
 				D28A18912561FE24006C7355 /* AppDelegate.swift in Sources */,
 				D28A18792561FC88006C7355 /* TokenDetails.swift in Sources */,
@@ -333,7 +333,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.PushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -356,7 +356,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.PushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

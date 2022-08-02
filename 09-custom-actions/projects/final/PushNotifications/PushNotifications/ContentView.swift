@@ -9,7 +9,7 @@ struct ContentView: View {
         count: $counter.accepted,
         backgroundColor: .green,
         text: "Accepted")
-      
+
       ColoredCounter(
         count: $counter.rejected,
         backgroundColor: .red,
