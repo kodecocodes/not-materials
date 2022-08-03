@@ -1,5 +1,4 @@
 import SwiftUI
-import CoreLocation
 
 @main
 struct LocalNotificationsApp: App {

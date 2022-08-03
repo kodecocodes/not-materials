@@ -44,7 +44,7 @@ struct CalendarView: View {
         alert.toggle()
         return
       }
-      
+
       let trigger = UNCalendarNotificationTrigger(
         dateMatching: components,
         repeats: commonFields.isRepeating)
@@ -53,11 +53,5 @@ struct CalendarView: View {
 
       presentationMode.wrappedValue.dismiss()
     }
-  }
-}
-
-struct CalendarView_Previews: PreviewProvider {
-  static var previews: some View {
-    CalendarView { _, _ in return }
   }
 }

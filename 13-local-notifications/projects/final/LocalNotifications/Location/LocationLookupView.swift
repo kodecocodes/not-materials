@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct LocationLookupView: View {
-  @EnvironmentObject private var locationManager: LocationManager
   let onComplete: (UNNotificationTrigger, CommonFieldsModel) async throws -> Void
+  @EnvironmentObject private var locationManager: LocationManager
 
   var body: some View {
     Group {

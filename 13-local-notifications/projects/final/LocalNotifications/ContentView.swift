@@ -7,11 +7,11 @@ struct ContentView: View {
   }
 
   @EnvironmentObject var commonFields: CommonFieldsModel
-  @StateObject private var localNotifications = LocalNotifications()
   @State private var showActionSheet = false
   @State private var showSheet = false
   @State private var alertText: AlertText?
   @State private var sheetType = SheetType.timed
+  @StateObject private var localNotifications = LocalNotifications()
 
   var body: some View {
     NavigationView {
@@ -54,7 +54,7 @@ struct ContentView: View {
         ])
     }
     .sheet(isPresented: $showSheet) {
-      Task { @MainActor in try await localNotifications.refreshNotifications() }
+      Task { await localNotifications.refreshNotifications() }
     } content: {
       NavigationView {
         switch sheetType {
@@ -73,8 +73,16 @@ struct ContentView: View {
         message: Text($0.text),
         dismissButton: .default(Text("OK")))
     }
-    .task {
-      try? await localNotifications.requestAuthorization()
+    .task { try? await localNotifications.requestAuthorization() }
+  }
+
+  private func deletePendingNotification(at offsets: IndexSet) {
+    let identifiers = offsets.map {
+      localNotifications.pending[$0].identifier
+    }
+
+    Task {
+      await localNotifications.removePendingNotifications(identifiers: identifiers)
     }
   }
 
@@ -85,22 +93,10 @@ struct ContentView: View {
     }
   }
 
-  private func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) async {
-    do {
-      try await localNotifications.scheduleNotification(trigger: trigger, model: commonFields)
-    } catch {
-      alertText = AlertText(text: error.localizedDescription)
-    }
-  }
-
-  private func deletePendingNotification(at offsets: IndexSet) {
-    let identifiers = offsets.map {
-      localNotifications.pending[$0].identifier
-    }
-
-    Task { @MainActor in
+  private func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) {
+    Task {
       do {
-        try await localNotifications.removePendingNotifications(identifiers: identifiers)
+        try await localNotifications.scheduleNotification(trigger: trigger, model: commonFields)
       } catch {
         alertText = AlertText(text: error.localizedDescription)
       }

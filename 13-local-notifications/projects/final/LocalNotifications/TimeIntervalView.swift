@@ -21,7 +21,7 @@ struct TimeIntervalView: View {
         title: Text("Please enter a positive numeric value for the seconds to wait."),
         dismissButton: .default(Text("OK")))
     }
-    .navigationBarItems(trailing: Button("Done", action: doneButtonTapped))
+    .navigationBarItems(trailing: Button("Done") { doneButtonTapped() })
     .navigationBarTitle(Text("Timed Notification"))
   }
 
@@ -32,14 +32,14 @@ struct TimeIntervalView: View {
         alert.toggle()
         return
       }
+  
+      presentationMode.wrappedValue.dismiss()
 
       let trigger = UNTimeIntervalNotificationTrigger(
         timeInterval: interval,
         repeats: model.isRepeating)
 
       try await onComplete(trigger, model)
-
-      presentationMode.wrappedValue.dismiss()
     }
   }
 }

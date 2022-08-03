@@ -122,10 +122,10 @@
 		D2E1703D256A0125003C9DC4 /* History */ = {
 			isa = PBXGroup;
 			children = (
-				D2E1703F256A0125003C9DC4 /* CalendarCell.swift */,
-				D2E17041256A0125003C9DC4 /* HistoryCell.swift */,
 				D2E1703E256A0125003C9DC4 /* LocationCell.swift */,
+				D2E1703F256A0125003C9DC4 /* CalendarCell.swift */,
 				D2E17040256A0125003C9DC4 /* TimeCell.swift */,
+				D2E17041256A0125003C9DC4 /* HistoryCell.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -133,13 +133,13 @@
 		D2E17048256A019F003C9DC4 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				D2E1704A256A019F003C9DC4 /* Geocoder.swift */,
 				D2E17049256A019F003C9DC4 /* Location.swift */,
-				D24834AA256B302F004C7932 /* LocationForm.swift */,
-				D2E1704C256A019F003C9DC4 /* LocationLookupView.swift */,
+				D2E1704A256A019F003C9DC4 /* Geocoder.swift */,
 				D2E1704B256A019F003C9DC4 /* LocationLookupViewModel.swift */,
-				D2E1704E256A019F003C9DC4 /* LocationManager.swift */,
+				D2E1704C256A019F003C9DC4 /* LocationLookupView.swift */,
 				D2E1704D256A019F003C9DC4 /* LocationValidationView.swift */,
+				D2E1704E256A019F003C9DC4 /* LocationManager.swift */,
+				D24834AA256B302F004C7932 /* LocationForm.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -385,7 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalNotifications/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = 3G4T2B7D7X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LocalNotifications/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -393,7 +393,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.LocalNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.LocalNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -407,7 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalNotifications/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = 3G4T2B7D7X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LocalNotifications/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -415,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.LocalNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.LocalNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

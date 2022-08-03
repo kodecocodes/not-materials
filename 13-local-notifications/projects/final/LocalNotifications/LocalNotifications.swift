@@ -7,30 +7,31 @@ final class LocalNotifications: NSObject, ObservableObject {
   @Published var pending: [UNNotificationRequest] = []
   @Published var delivered: [UNNotification] = []
 
-  private let center = UNUserNotificationCenter.current()
-
   override init() {
     super.init()
     center.delegate = self
   }
 
+  private let center = UNUserNotificationCenter.current()
+
   func requestAuthorization() async throws {
     authorized = try await center.requestAuthorization(options: [.badge, .sound, .alert])
   }
 
-  func refreshNotifications() async throws {
+  @MainActor
+  func refreshNotifications() async {
     pending = await center.pendingNotificationRequests()
     delivered = await center.deliveredNotifications()
   }
 
-  func removePendingNotifications(identifiers: [String]) async throws {
+  func removePendingNotifications(identifiers: [String]) async {
     center.removePendingNotificationRequests(withIdentifiers: identifiers)
-    try await refreshNotifications()
+    await refreshNotifications()
   }
 
-  func removeDeliveredNotifications(identifiers: [String]) async throws {
+  func removeDeliveredNotifications(identifiers: [String]) async {
     center.removeDeliveredNotifications(withIdentifiers: identifiers)
-    try await refreshNotifications()
+    await refreshNotifications()
   }
 
   func scheduleNotification(trigger: UNNotificationTrigger, model: CommonFieldsModel) async throws {
@@ -58,7 +59,10 @@ final class LocalNotifications: NSObject, ObservableObject {
 }
 
 extension LocalNotifications: UNUserNotificationCenterDelegate {
-  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+  func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    willPresent notification: UNNotification
+  ) async -> UNNotificationPresentationOptions {
     return [.banner, .badge, .sound]
   }
 }

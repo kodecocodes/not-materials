@@ -17,7 +17,6 @@ struct LocationForm: View {
           TextField("Address", text: $model.address)
 
           Button {
-            print("Lookup")
             model.lookup(address: model.address)
           } label: {
             Image(systemName: "magnifyingglass")
@@ -57,29 +56,29 @@ struct LocationForm: View {
   }
 
   private func doneButtonTapped() {
-    Task { @MainActor in
+    Task { @MainActor in 
       let radiusStr = model.radius.trimmingCharacters(in: .whitespacesAndNewlines)
-      
+
       guard !radiusStr.isEmpty, let distance = CLLocationDistance(radiusStr) else {
         model.alertText = AlertText(text: "Please specify numerical radius.")
         return
       }
-      
+
       guard let coordinates = model.coordinate else {
         return
       }
-      
+
       let region = CLCircularRegion(
         center: coordinates,
         radius: distance,
         identifier: UUID().uuidString)
-      
+
       region.notifyOnExit = model.notifyOnExit
       region.notifyOnEntry = model.notifyOnEntry
-      
+
       let trigger = UNLocationNotificationTrigger(region: region, repeats: commonFields.isRepeating)
       try await onComplete(trigger, commonFields)
-      
+
       presentationMode.wrappedValue.dismiss()
     }
   }
