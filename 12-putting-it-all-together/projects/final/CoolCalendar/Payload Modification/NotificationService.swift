@@ -9,7 +9,7 @@ class NotificationService: UNNotificationServiceExtension {
     self.contentHandler = contentHandler
     bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
-    guard let bestAttemptContent = bestAttemptContent else {
+    guard let bestAttemptContent else {
       return
     }
 
@@ -21,14 +21,6 @@ class NotificationService: UNNotificationServiceExtension {
 
     updateBadge()
     updateText(request: request)
-  }
-
-  override func serviceExtensionTimeWillExpire() {
-    // Called just before the extension will be terminated by the system.
-    // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-    if let contentHandler, let bestAttemptContent {
-      contentHandler(bestAttemptContent)
-    }
   }
 
   private func updateBadge() {
@@ -77,5 +69,13 @@ class NotificationService: UNNotificationServiceExtension {
 
     let range = rangeFormatter.string(from: startDate, to: endDate)
     bestAttemptContent.body = "\(title)\n\(range)"
+  }
+
+  override func serviceExtensionTimeWillExpire() {
+    // Called just before the extension will be terminated by the system.
+    // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
+    if let contentHandler, let bestAttemptContent {
+      contentHandler(bestAttemptContent)
+    }
   }
 }

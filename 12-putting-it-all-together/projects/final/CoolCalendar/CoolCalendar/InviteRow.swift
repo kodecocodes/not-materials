@@ -27,6 +27,7 @@ struct InviteRow: View {
 struct InviteRow_Previews: PreviewProvider {
   static var previews: some View {
     let invite = Invite(context: PersistenceController.preview.container.viewContext)
+
     invite.title = "Event Name"
     invite.accepted = true
     invite.start = Date()

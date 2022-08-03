@@ -4,7 +4,6 @@ import CoreData
 final class NotificationCenter: NSObject {
   private func createInvite(with title: String, starting: Date, ending: Date, accepted: Bool) async {
     let context = PersistenceController.shared.container.viewContext
-
     await context.perform(schedule: .enqueued) {
       let invite = Invite(context: context)
       invite.title = title
@@ -25,7 +24,11 @@ extension NotificationCenter: UNUserNotificationCenterDelegate {
     return [.banner, .sound, .badge]
   }
 
-  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+  @MainActor
+  func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse
+  ) async {
     let formatter = ISO8601DateFormatter()
     let content = response.notification.request.content
 
@@ -38,18 +41,16 @@ extension NotificationCenter: UNUserNotificationCenterDelegate {
       let end = userInfo["end"] as? String,
       let endDate = formatter.date(from: end),
       let calendarIdentifier = userInfo["id"] as? Int else {
-        return
+      return
     }
 
     switch choice {
     case .accept:
       Server.shared.acceptInvitation(with: calendarIdentifier)
       await createInvite(with: title, starting: startDate, ending: endDate, accepted: true)
-
     case .decline:
       Server.shared.declineInvitation(with: calendarIdentifier)
       await createInvite(with: title, starting: startDate, ending: endDate, accepted: false)
-
     default:
       break
     }

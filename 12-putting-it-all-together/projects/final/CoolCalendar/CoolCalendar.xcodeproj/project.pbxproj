@@ -15,12 +15,6 @@
 		D2377AFB256248DD00CD0DF2 /* CoolCalendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2377AF9256248DD00CD0DF2 /* CoolCalendar.xcdatamodeld */; };
 		D24E71D72892FF080098BFF7 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71D62892FF080098BFF7 /* PushNotifications.swift */; };
 		D24E71D92892FFD40098BFF7 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71D82892FFD40098BFF7 /* NotificationCenter.swift */; };
-		D24E71DB289302010098BFF7 /* ActionIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71DA289302010098BFF7 /* ActionIdentifier.swift */; };
-		D24E71DC2893021C0098BFF7 /* ActionIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71DA289302010098BFF7 /* ActionIdentifier.swift */; };
-		D24E71DE2893068C0098BFF7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71DD2893068C0098BFF7 /* UserDefaults.swift */; };
-		D24E71DF289306B20098BFF7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71DD2893068C0098BFF7 /* UserDefaults.swift */; };
-		D24E71E128930FC00098BFF7 /* AcceptanceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71E028930FC00098BFF7 /* AcceptanceImage.swift */; };
-		D24E71E3289310170098BFF7 /* InviteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E71E2289310170098BFF7 /* InviteRow.swift */; };
 		D26C54E52562494400DCC63D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D26C54E42562494400DCC63D /* LICENSE */; };
 		D26C54EE256249B200DCC63D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26C54EB256249B200DCC63D /* AppDelegate.swift */; };
 		D26C54F1256249D300DCC63D /* TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26C54F0256249D300DCC63D /* TokenDetails.swift */; };
@@ -34,6 +28,12 @@
 		D26C552225624B8200DCC63D /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = D26C552125624B8200DCC63D /* CalendarKit */; };
 		D26C552725624BB600DCC63D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26C552625624BB600DCC63D /* Server.swift */; };
 		D26C554F2562546800DCC63D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26C552625624BB600DCC63D /* Server.swift */; };
+		F587EF0D289A537500544D3E /* ActionIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EF0C289A537500544D3E /* ActionIdentifier.swift */; };
+		F587EF0E289A537500544D3E /* ActionIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EF0C289A537500544D3E /* ActionIdentifier.swift */; };
+		F587EF10289A598A00544D3E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EF0F289A598A00544D3E /* UserDefaults.swift */; };
+		F587EF11289A598A00544D3E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EF0F289A598A00544D3E /* UserDefaults.swift */; };
+		F587EF13289A603D00544D3E /* AcceptanceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EF12289A603D00544D3E /* AcceptanceImage.swift */; };
+		F587EF17289A608300544D3E /* InviteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587EF16289A608300544D3E /* InviteRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,10 +79,6 @@
 		D2377AFC256248DD00CD0DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D24E71D62892FF080098BFF7 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
 		D24E71D82892FFD40098BFF7 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
-		D24E71DA289302010098BFF7 /* ActionIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionIdentifier.swift; sourceTree = "<group>"; };
-		D24E71DD2893068C0098BFF7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		D24E71E028930FC00098BFF7 /* AcceptanceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptanceImage.swift; sourceTree = "<group>"; };
-		D24E71E2289310170098BFF7 /* InviteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteRow.swift; sourceTree = "<group>"; };
 		D26C54E42562494400DCC63D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D26C54E72562495900DCC63D /* CoolCalendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoolCalendar.entitlements; sourceTree = "<group>"; };
 		D26C54EB256249B200DCC63D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +94,10 @@
 		D26C551625624A4500DCC63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D26C552625624BB600DCC63D /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		D26C554025624EDF00DCC63D /* Payload Modification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Payload Modification.entitlements"; sourceTree = "<group>"; };
+		F587EF0C289A537500544D3E /* ActionIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionIdentifier.swift; sourceTree = "<group>"; };
+		F587EF0F289A598A00544D3E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F587EF12289A603D00544D3E /* AcceptanceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptanceImage.swift; sourceTree = "<group>"; };
+		F587EF16289A608300544D3E /* InviteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,21 +157,21 @@
 			children = (
 				D26C54E72562495900DCC63D /* CoolCalendar.entitlements */,
 				D2377AFC256248DD00CD0DF2 /* Info.plist */,
-				D24E71E028930FC00098BFF7 /* AcceptanceImage.swift */,
-				D24E71DA289302010098BFF7 /* ActionIdentifier.swift */,
 				D26C54EB256249B200DCC63D /* AppDelegate.swift */,
 				D2377AF0256248DC00CD0DF2 /* ContentView.swift */,
 				D2377AEE256248DC00CD0DF2 /* CoolCalendarApp.swift */,
-				D24E71E2289310170098BFF7 /* InviteRow.swift */,
 				D24E71D82892FFD40098BFF7 /* NotificationCenter.swift */,
 				D2377AF7256248DD00CD0DF2 /* Persistence.swift */,
 				D24E71D62892FF080098BFF7 /* PushNotifications.swift */,
 				D26C552625624BB600DCC63D /* Server.swift */,
 				D26C54F0256249D300DCC63D /* TokenDetails.swift */,
-				D24E71DD2893068C0098BFF7 /* UserDefaults.swift */,
 				D2377AF2256248DD00CD0DF2 /* Assets.xcassets */,
 				D2377AF9256248DD00CD0DF2 /* CoolCalendar.xcdatamodeld */,
 				D2377AF4256248DD00CD0DF2 /* Preview Content */,
+				F587EF0C289A537500544D3E /* ActionIdentifier.swift */,
+				F587EF0F289A598A00544D3E /* UserDefaults.swift */,
+				F587EF12289A603D00544D3E /* AcceptanceImage.swift */,
+				F587EF16289A608300544D3E /* InviteRow.swift */,
 			);
 			path = CoolCalendar;
 			sourceTree = "<group>";
@@ -413,15 +413,15 @@
 				D2377AFB256248DD00CD0DF2 /* CoolCalendar.xcdatamodeld in Sources */,
 				D24E71D72892FF080098BFF7 /* PushNotifications.swift in Sources */,
 				D2377AF8256248DD00CD0DF2 /* Persistence.swift in Sources */,
-				D24E71DE2893068C0098BFF7 /* UserDefaults.swift in Sources */,
+				F587EF17289A608300544D3E /* InviteRow.swift in Sources */,
+				F587EF10289A598A00544D3E /* UserDefaults.swift in Sources */,
 				D26C54F1256249D300DCC63D /* TokenDetails.swift in Sources */,
-				D24E71DB289302010098BFF7 /* ActionIdentifier.swift in Sources */,
+				F587EF0D289A537500544D3E /* ActionIdentifier.swift in Sources */,
 				D26C54EE256249B200DCC63D /* AppDelegate.swift in Sources */,
 				D2377AF1256248DC00CD0DF2 /* ContentView.swift in Sources */,
-				D24E71E3289310170098BFF7 /* InviteRow.swift in Sources */,
 				D24E71D92892FFD40098BFF7 /* NotificationCenter.swift in Sources */,
 				D26C552725624BB600DCC63D /* Server.swift in Sources */,
-				D24E71E128930FC00098BFF7 /* AcceptanceImage.swift in Sources */,
+				F587EF13289A603D00544D3E /* AcceptanceImage.swift in Sources */,
 				D2377AEF256248DC00CD0DF2 /* CoolCalendarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D24E71DF289306B20098BFF7 /* UserDefaults.swift in Sources */,
+				F587EF11289A598A00544D3E /* UserDefaults.swift in Sources */,
 				D26C54FB25624A3A00DCC63D /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +441,7 @@
 			files = (
 				D26C554F2562546800DCC63D /* Server.swift in Sources */,
 				D26C551225624A4500DCC63D /* NotificationViewController.swift in Sources */,
-				D24E71DC2893021C0098BFF7 /* ActionIdentifier.swift in Sources */,
+				F587EF0E289A537500544D3E /* ActionIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +597,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoolCalendar/CoolCalendar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolCalendar/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoolCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -605,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gargoylesoft.CoolCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.CoolCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,7 +621,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoolCalendar/CoolCalendar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolCalendar/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoolCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -629,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gargoylesoft.CoolCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.CoolCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -642,7 +642,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Payload Modification/Payload Modification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,7 +650,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gargoylesoft.CoolCalendar.Payload-Modification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Payload-Modification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -664,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Payload Modification/Payload Modification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -672,7 +672,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gargoylesoft.CoolCalendar.Payload-Modification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Payload-Modification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -684,7 +684,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Custom UI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -692,7 +692,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gargoylesoft.CoolCalendar.Custom-UI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Custom-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -704,7 +704,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Custom UI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -712,7 +712,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gargoylesoft.CoolCalendar.Custom-UI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Custom-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

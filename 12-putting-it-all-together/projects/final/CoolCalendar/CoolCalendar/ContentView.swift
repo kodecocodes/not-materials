@@ -3,9 +3,10 @@ import CoreData
 import EventKit
 
 struct ContentView: View {
-  @Environment(\.managedObjectContext) private var viewContext
   @State private var eventStore = EKEventStore()
   @State private var askForCalendarPermissions = false
+  @Environment(\.managedObjectContext) private var viewContext
+
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Invite.start, ascending: true)],
     animation: .default
@@ -14,27 +15,26 @@ struct ContentView: View {
 
   var body: some View {
     List(invites) { InviteRow(invite: $0) }
-      .task { try? await onAppear() }
+      .onAppear(perform: onAppear)
       .actionSheet(isPresented: $askForCalendarPermissions, content: actionSheet)
   }
 
-  private func onAppear() async throws {
+  private func onAppear() {
     let status = EKEventStore.authorizationStatus(for: .event)
-
     switch status {
     case .notDetermined:
-      askForCalendarPermissions = !(try await eventStore.requestAccess(to: .event))
-
+      Task {
+        askForCalendarPermissions = try! await eventStore.requestAccess(to: .event)
+      }
     case .authorized:
       break
-
     default:
       askForCalendarPermissions = true
     }
   }
 
-  private func actionSheet() -> ActionSheet {
-    return ActionSheet(
+  func actionSheet() -> ActionSheet {
+    ActionSheet(
       title: Text("This application requires calendar access"),
       message: Text("Grant access?"),
       buttons: [

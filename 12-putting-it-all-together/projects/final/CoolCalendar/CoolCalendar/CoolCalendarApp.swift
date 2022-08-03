@@ -6,11 +6,17 @@ import SwiftUI
 struct CoolCalendarApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self)
   private var appDelegate
-
   @Environment(\.scenePhase)
   private var scenePhase
 
   let persistenceController = PersistenceController.shared
+
+  private func clearBadgeCount(phase: ScenePhase) {
+    guard phase == .active else { return }
+
+    UserDefaults.appGroup.badge = 0
+    UIApplication.shared.applicationIconBadgeNumber = 0
+  }
 
   var body: some Scene {
     WindowGroup {
@@ -18,12 +24,5 @@ struct CoolCalendarApp: App {
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
         .onChange(of: scenePhase, perform: clearBadgeCount)
     }
-  }
-
-  private func clearBadgeCount(phase: ScenePhase) {
-    guard phase == .active else { return }
-
-    UserDefaults.appGroup.badge = 0
-    UIApplication.shared.applicationIconBadgeNumber = 0
   }
 }

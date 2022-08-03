@@ -103,7 +103,11 @@ extension NotificationViewController: UNNotificationContentExtension {
     let displayStart = calendar.date(byAdding: .hour, value: -2, to: startDate)!
     let displayEnd = calendar.date(byAdding: .hour, value: 2, to: endDate)!
 
-    let predicate = eventStore.predicateForEvents(withStart: displayStart, end: displayEnd, calendars: nil)
+    let predicate = eventStore.predicateForEvents(
+      withStart: displayStart,
+      end: displayEnd,
+      calendars: nil
+    )
 
     appointments += eventStore
       .events(matching: predicate)
@@ -122,7 +126,9 @@ extension NotificationViewController: UNNotificationContentExtension {
     timelineContainer.scrollTo(hour24: Float(hour))
   }
 
-  func didReceive(_ response: UNNotificationResponse) async -> UNNotificationContentExtensionResponseOption {
+  func didReceive(
+    _ response: UNNotificationResponse
+  ) async -> UNNotificationContentExtensionResponseOption {
     guard
       let choice = ActionIdentifier(rawValue: response.actionIdentifier)
     else {
@@ -136,8 +142,8 @@ extension NotificationViewController: UNNotificationContentExtension {
     case .accept, .decline:
       return .dismissAndForwardAction
     case .comment:
-      becomeFirstResponder()
-      keyboardTextField.becomeFirstResponder()
+      _ = becomeFirstResponder()
+      _ = keyboardTextField.becomeFirstResponder()
       return .doNotDismiss
     }
   }
@@ -159,7 +165,6 @@ extension NotificationViewController: UITextFieldDelegate {
 
     keyboardTextField.resignFirstResponder()
     resignFirstResponder()
-
     return true
   }
 }

@@ -577,7 +577,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoolCalendar/CoolCalendar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolCalendar/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoolCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -585,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.CoolCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.CoolCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -601,7 +601,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoolCalendar/CoolCalendar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolCalendar/Preview Content\"";
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoolCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -609,7 +609,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.CoolCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.CoolCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,7 +622,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Payload Modification/Payload Modification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -630,7 +630,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.CoolCalendar.Payload-Modification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Payload-Modification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -644,7 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Payload Modification/Payload Modification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Payload Modification/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -652,7 +652,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.CoolCalendar.Payload-Modification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Payload-Modification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -664,7 +664,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Custom UI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -672,7 +672,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.CoolCalendar.Custom-UI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Custom-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -684,7 +684,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BQUPLV7KWS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Custom UI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -692,7 +692,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.CoolCalendar.Custom-UI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.CoolCalendar.Custom-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
