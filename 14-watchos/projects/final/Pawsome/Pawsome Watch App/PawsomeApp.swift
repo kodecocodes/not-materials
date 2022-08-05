@@ -2,10 +2,10 @@ import SwiftUI
 
 @main
 struct Pawsome_Watch_AppApp: App {
+  private let local = LocalNotifications()
+
   @WKExtensionDelegateAdaptor(ExtensionDelegate.self)
   private var extensionDelegate
-  
-  private let local = LocalNotifications()
 
   var body: some Scene {
     WindowGroup {

@@ -54,7 +54,7 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
-      notificationPayloadFile = "RemotePush.apns">
+      notificationPayloadFile = "Pawsome Watch App/Remote Notifications/RemotePush.apns">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference

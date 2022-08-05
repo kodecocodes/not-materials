@@ -8,7 +8,6 @@ struct NotificationView: View {
     ScrollView {
       Text(message)
         .font(.headline)
-
       image
         .resizable()
         .scaledToFit()
