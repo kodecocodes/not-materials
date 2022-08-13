@@ -1,15 +1,16 @@
 import SwiftUI
-import MapKit
 
 struct MapView: View {
-  let region: MKCoordinateRegion
-  let image: Image?
+  let mapImage: Image
+  let targetImage: Image?
 
   var body: some View {
-    Map(coordinateRegion: .constant(region))
+    mapImage
+      .resizable()
+      .aspectRatio(contentMode: .fit)
       .overlay(alignment: .topTrailing) {
-        if let image {
-          image
+        if let targetImage {
+          targetImage
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 80.0, height: 80.0)
@@ -20,9 +21,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
   static var previews: some View {
-    MapView(region: .init(
-      center: .init(latitude: 37.334886, longitude: -122.008988),
-      span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
-    ), image: nil)
+    MapView(mapImage: Image(systemName: "globe.americas"), targetImage: nil)
   }
 }

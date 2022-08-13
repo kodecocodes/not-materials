@@ -11,6 +11,9 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     case cancel
   }
 
+  var mapViewHost: UIHostingController<MapView>!
+  var region: MKCoordinateRegion!
+
   override var canBecomeFirstResponder: Bool {
     return true
   }
@@ -27,14 +30,72 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     return paymentView
   }
 
-  var region: MKCoordinateRegion!
-  var mapViewHost: UIHostingController<MapView>!
+  func didReceive(_ notification: UNNotification) {
+    decodeUserInfo(notification)
 
-  @IBOutlet var label: UILabel?
+    var mapImage = Image(systemName: "globe.americas")
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any required interface initialization here.
+    let group = DispatchGroup()
+    group.enter()
+
+    let options = MKMapSnapshotter.Options()
+    options.region = region
+
+    let snapshotter = MKMapSnapshotter(options: options)
+
+    snapshotter.start(with: .global(qos: .userInitiated)) { (snapshot, _) in
+      if let image = snapshot?.image {
+        mapImage = Image(uiImage: image)
+      }
+
+      group.leave()
+    }
+
+    group.wait()
+
+    let mapView = MapView(mapImage: mapImage, targetImage: getImage(notification))
+    mapViewHost = UIHostingController(rootView: mapView)
+
+    addChild(mapViewHost)
+    view.addSubview(mapViewHost.view)
+
+    mapViewHost.view.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      mapViewHost.view.topAnchor.constraint(equalTo: view.topAnchor),
+      mapViewHost.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      mapViewHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      mapViewHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
+
+    mapViewHost.didMove(toParent: self)
+  }
+
+  func didReceive(
+    _ response: UNNotificationResponse
+  ) async -> UNNotificationContentExtensionResponseOption {
+    _ = becomeFirstResponder()
+    return .doNotDismiss
+  }
+
+  private func getImage(_ notification: UNNotification) -> Image? {
+    guard
+      let attachment = notification.request.content.attachments.first,
+      attachment.url.startAccessingSecurityScopedResource()
+    else {
+      return nil
+    }
+
+    defer { attachment.url.stopAccessingSecurityScopedResource() }
+
+    guard
+      let data = try? Data(contentsOf: attachment.url),
+      let uimage = UIImage(data: data)
+    else {
+      return nil
+    }
+
+    return Image(uiImage: uimage)
   }
 
   private func decodeUserInfo(_ notification: UNNotification) {
@@ -60,49 +121,5 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
       latitudinalMeters: radius,
       longitudinalMeters: radius
     )
-  }
-
-  func didReceive(_ notification: UNNotification) {
-    decodeUserInfo(notification)
-    let mapView = MapView(region: region, image: getImage(notification))
-    mapViewHost = UIHostingController(rootView: mapView)
-    addChild(mapViewHost)
-    view.addSubview(mapViewHost.view)
-    mapViewHost.view.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate([
-      mapViewHost.view.topAnchor.constraint(equalTo: view.topAnchor),
-      mapViewHost.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      mapViewHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      mapViewHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
-    mapViewHost.didMove(toParent: self)
-  }
-
-  func didReceive(
-    _ response: UNNotificationResponse
-  ) async -> UNNotificationContentExtensionResponseOption {
-    _ = becomeFirstResponder()
-    return .doNotDismiss
-  }
-
-  func getImage(_ notification: UNNotification) -> Image? {
-    guard
-      let attachment = notification.request.content.attachments.first,
-      attachment.url.startAccessingSecurityScopedResource()
-    else {
-      return nil
-    }
-
-    defer { attachment.url.stopAccessingSecurityScopedResource() }
-
-    guard
-      let data = try? Data(contentsOf: attachment.url),
-      let uimage = UIImage(data: data)
-    else {
-      return nil
-    }
-
-    return Image(uiImage: uimage)
   }
 }
