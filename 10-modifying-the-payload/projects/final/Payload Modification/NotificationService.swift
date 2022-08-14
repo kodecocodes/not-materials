@@ -1,11 +1,3 @@
-//
-//  NotificationService.swift
-//  Payload Modification
-//
-//  Created by Marin Bencevic on 02.08.2022..
-//  Copyright © 2022 Ray Wenderlich. All rights reserved.
-//
-
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
