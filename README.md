@@ -12,6 +12,6 @@ We’ve set up an official forum for the book at [https://forums.raywenderlich.c
 
 | Branch                                                                           | Edition | Release Date |
 | -------------------------------------------------------------------------------- |:-------:|:------------:|
-| [editions/4.0](https://github.com/raywenderlich/not-materials/tree/editions/4.0) | 4.0     | YYYY-MM-DD   |
+| [editions/4.0](https://github.com/raywenderlich/not-materials/tree/editions/4.0) | 4.0     | 2022-09-07   |
 | [editions/3.0](https://github.com/raywenderlich/not-materials/tree/editions/3.0) | 3.0     | 2021-01-15   |
 | [editions/2.0](https://github.com/raywenderlich/not-materials/tree/editions/2.0) | 2.0     | 2019-10-02   |
